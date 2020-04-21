@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {ColorUtils} from "../../utils/color.utils";
 import {OS_TOKEN, OsTypes} from "../../types/types";
-import {NgxDesktopService} from "../../ngx-desktop.service";
 
 
 export type MacColor = 'default' | 'blue';
@@ -70,10 +69,6 @@ export class ButtonComponent implements OnInit {
 
   get style() {
     if (this.currentOs === 'mac') {
-      if (this.disabled) {
-      debugger;
-
-      }
       return {
         ...this.color === 'default' ? {
           'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
@@ -119,14 +114,7 @@ export class ButtonComponent implements OnInit {
     return {};
   }
 
-  static getValue(value: string | number): string {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-    return value;
-  }
-
-  constructor(private ngxDesktopService: NgxDesktopService) {
+  constructor() {
   }
 
   ngOnInit(): void {
