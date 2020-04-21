@@ -1,0 +1,26 @@
+<button data-radium="true"
+        [disabled]="disabled"
+        [type]="type"
+        (click)="btnClick.emit($event)"
+        [ngStyle]="style"
+        [class.mousedown]="mousedown"
+        [class.blur]="windowBlur"
+        [class.disabled]="disabled"
+        [class]="os"
+        [style.fontSize]="size"
+        [style.padding]="padding"
+        [style.margin]="margin"
+        [style.marginBottom]="marginBottom"
+        [style.marginTop]="marginTop"
+        [style.marginLeft]="marginLeft"
+        [style.marginRight]="marginRight"
+        [style.paddingBottom]="paddingBottom"
+        [style.paddingLeft]="paddingLeft"
+        [style.paddingRight]="paddingRight"
+        [style.paddingTop]="paddingTop">
+  <ng-content></ng-content>
+</button>
+
+<!--<button type="button" data-radium="true" >-->
+<!--  Press me!-->
+<!--</button>-->

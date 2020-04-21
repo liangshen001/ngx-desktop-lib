@@ -1,0 +1,48 @@
+  <div data-radium="true"
+       class="radio-wrap"
+       [class.blur]="windowBlur"
+       [class.checked]="model === value"
+       [class.disabled]="disabled"
+       [class]="os">
+    <label data-radium="true">
+      <div data-radium="true" class="radio-input-wrap">
+        <input type="radio"
+               [attr.name]="name"
+               [(ngModel)]="model"
+               [value]="value"
+               [disabled]="disabled"
+               (ngModelChange)="changeValue($event)"
+               data-radium="true">
+        <div data-radium="true" *ngIf="os === 'windows' && model === value" class="windows-radio-style"></div>
+        <div data-radium="true" *ngIf="os === 'mac'"
+             style="position: absolute; top: 7px; left: 5px; width: 6px; height: 6px; opacity: 1; transform: scale(1); transition: opacity 0s ease 0s, transform 0.2s ease 0s;">
+          <svg viewBox="0 0 285 285" data-radium="true"
+               style="z-index: 2; position: absolute; top: 0; left: 0; height: 6px;">
+            <circle
+              [attr.fill]="disabled ? '#8d8d8d' : (model === value ? (windowBlur ? '#404040' : '#FFFFFF') : '#FFFFFF')"
+              cx="142.5" cy="142.5" r="142.5"></circle>
+          </svg>
+          <svg viewBox="0 0 285 285" data-radium="true"
+               style="z-index: 1; position: absolute; top: 1.5px; left: 0; opacity: 0.37; height: 6px; filter: blur(0.5px);">
+            <circle
+              [attr.fill]="disabled ? '#ededed' : (model === value ? (windowBlur ? '#FFFFFF' : '#0050a5') : '#FFFFFF')"
+              cx="142.5" cy="142.5" r="142.5"></circle>
+          </svg>
+        </div>
+      </div>
+      <span class="label-wrap">{{label}}</span>
+    </label>
+  </div>
+
+<!--      <input type="radio"-->
+<!--             name="radio1"-->
+<!--             data-radium="true"-->
+<!--             value="I got checked!"-->
+<!--             checked=""-->
+<!--             style="user-select: none; -webkit-appearance: none; border-width: 2px; border-style: solid; border-color: rgb(204, 127, 41); border-radius: 50%; background-color: transparent; padding: 8px; margin: 0px;">-->
+<!--      <div data-radium="true"-->
+<!--           style="position: absolute; top: 7px; left: 5px; width: 10px; height: 10px; border-radius: 50%; background: rgb(51, 51, 51);"></div>-->
+<!--    </div>-->
+<!--    <div-->
+<!--      style='user-select: none; cursor: default; line-height: 25.96px; font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; font-size: 15px; display: inline; color: rgb(0, 0, 0);'>-->
+<!--      Check me!-->

@@ -1,0 +1,39 @@
+<div style="user-select: none; cursor: default; flex: 1 1 0;"
+     [style.margin]="margin"
+     [style.marginBottom]="marginBottom"
+     [style.marginTop]="marginTop"
+     [style.marginLeft]="marginLeft"
+     [style.marginRight]="marginRight"
+     [style.width]="width">
+  <div class="tab-label-wrap">
+    <div data-radium="true"
+         *ngFor="let segmented of this.segmentedList; let i = index"
+         [class.disabled]="segmented.disabled"
+         [class.selected]="i === model"
+         (mousedown)="segmented.labelMousedown = true"
+         [class.mousedown]="segmented.labelMousedown"
+         [class.blur]="windowBlur"
+         (click)="selectTab(i, segmented)">
+      {{segmented.label}}
+    </div>
+<!--    <div data-radium="true" class="tab-label-wrap left-tab selected">-->
+<!--      Tab 1-->
+<!--    </div>-->
+<!--    <div data-radium="true" class="tab-label-wrap">-->
+<!--      Tab 2-->
+<!--    </div>-->
+<!--    <div data-radium="true" class="tab-label-wrap right-tab">-->
+<!--      Tab 3-->
+<!--    </div>-->
+  </div>
+  <div class="content-wrap"
+       [style.height]="height"
+       [style.backgroundColor]="backgroundColor"
+       [style.paddingBottom]="paddingBottom"
+       [style.paddingLeft]="paddingLeft"
+       [style.paddingRight]="paddingRight"
+       [style.paddingTop]="paddingTop">
+      <ng-content></ng-content>
+<!--      <span style="display: block; user-select: none; cursor: default; font-size: 13px; color: rgb(0, 0, 0);">Content 1</span>-->
+  </div>
+</div>

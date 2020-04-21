@@ -1,0 +1,21 @@
+<div class="box-wrap">
+  <span class="lable">{{label}}</span>
+  <div class="content-wrap"
+       [style.padding]="padding"
+       [style.background]="background"
+       [style.height]="height"
+       [style.width]="width"
+       [style.margin]="margin"
+       [style.justifyContent]="justifyContent"
+       [style.alignItems]="alignItems"
+       [style.marginBottom]="marginBottom"
+       [style.marginTop]="marginTop"
+       [style.marginLeft]="marginLeft"
+       [style.marginRight]="marginRight"
+       [style.paddingBottom]="paddingBottom"
+       [style.paddingLeft]="paddingLeft"
+       [style.paddingRight]="paddingRight"
+       [style.paddingTop]="paddingTop">
+    <ng-content></ng-content>
+  </div>
+</div>

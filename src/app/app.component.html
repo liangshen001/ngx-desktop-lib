@@ -1,0 +1,40 @@
+<div>
+
+
+  <ngx-desktop-checkbox [label]="'test'"></ngx-desktop-checkbox>
+  <ngx-desktop-checkbox [label]="'test'"></ngx-desktop-checkbox>
+  <!--  <ngx-desktop-button [disabled]="true">Press me!</ngx-desktop-button>-->
+  <!--  <ngx-desktop-button [color]="'blue'">Press me!</ngx-desktop-button>-->
+  <ngx-desktop-button>Press me!</ngx-desktop-button>
+  <!--  <ngx-desktop-box [label]="'Box'" [marginBottom]="'100px'">-->
+  <!--    <span style='display: block; user-select: none; cursor: default; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; font-size: 11px; color: rgb(0, 0, 0); margin: 0px 0px 1px 7px; line-height: 13.2px;'>Box</span>-->
+  <!--  </ngx-desktop-box>-->
+  <!--  <ngx-desktop-label>Test Label</ngx-desktop-label>-->
+  <ngx-desktop-radio [label]="'radio1'" [(ngModel)]="a" [name]="'aa'" [value]="'1'"></ngx-desktop-radio>
+  <ngx-desktop-radio [label]="'radio2'" [(ngModel)]="a" [name]="'aa'" [value]="'2'"></ngx-desktop-radio>
+  <ngx-desktop-button>123</ngx-desktop-button>
+  <ngx-desktop-text-input os="windows" label="123"></ngx-desktop-text-input>
+  <ngx-desktop-segmented-control [ngModel]="2">
+    <ngx-desktop-segmented-control-item label="123">
+      <ngx-desktop-text-input os="mac" label="123" width="300px"></ngx-desktop-text-input>
+    </ngx-desktop-segmented-control-item>
+    <ngx-desktop-segmented-control-item label="123">test2</ngx-desktop-segmented-control-item>
+    <ngx-desktop-segmented-control-item label="234234">test3</ngx-desktop-segmented-control-item>
+  </ngx-desktop-segmented-control>
+
+
+  <ngx-desktop-checkbox os="mac" [label]="'test'"></ngx-desktop-checkbox>
+  <ngx-desktop-checkbox os="mac" [label]="'test'"></ngx-desktop-checkbox>
+  <!--  <ngx-desktop-button [disabled]="true">Press me!</ngx-desktop-button>-->
+  <!--  <ngx-desktop-button [color]="'blue'">Press me!</ngx-desktop-button>-->
+  <ngx-desktop-button os="mac">Press me!</ngx-desktop-button>
+  <!--  <ngx-desktop-box [label]="'Box'" [marginBottom]="'100px'">-->
+  <!--    <span style='display: block; user-select: none; cursor: default; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; font-size: 11px; color: rgb(0, 0, 0); margin: 0px 0px 1px 7px; line-height: 13.2px;'>Box</span>-->
+  <!--  </ngx-desktop-box>-->
+  <!--  <ngx-desktop-label>Test Label</ngx-desktop-label>-->
+  <ngx-desktop-radio os="mac" [label]="'radio1'" [(ngModel)]="a" [name]="'aa'" [value]="'1'"></ngx-desktop-radio>
+  <ngx-desktop-radio os="mac" [label]="'radio2'" [(ngModel)]="a" [name]="'aa'" [value]="'2'"></ngx-desktop-radio>
+  <ngx-desktop-button os="mac" color="blue">123</ngx-desktop-button>
+
+
+</div>
