@@ -1,12 +1,13 @@
 <div data-radium="true" class="text-input-wrap"
-     [class]="os"
+     [ngxDesktopOsClass]="os"
+     (osChange)="osChange($event)"
      [style.zIndex]="focus ? 3 : 2"
-     [style.margin]="margin"
-     [style.marginBottom]="marginBottom"
-     [style.marginTop]="marginTop"
-     [style.marginLeft]="marginLeft"
-     [style.width]="width"
-     [style.marginRight]="marginRight">
+     [ngxDesktopMargin]="margin"
+     [marginTop]="marginTop"
+     [marginRight]="marginRight"
+     [marginLeft]="marginLeft"
+     [marginBottom]="marginBottom"
+     [ngxDesktopWidth]="width">
   <span class="label-wrap">{{label}}</span>
   <div data-radium="true" style="position: relative;">
     <div data-radium="true">
@@ -14,10 +15,10 @@
     </div>
     <div>
       <input type="text"
-             [style]="style"
+             [ngStyle]="style"
              [placeholder]="placeholder"
-             (blur)="focus = false"
-             (focus)="focus = true"
+             (ngxDesktopFocus)="focus = $event"
+             (ngxDesktopMouseover)="mouseover = $event"
              [(ngModel)]="model"
              (ngModelChange)="changeValue($event)"
              data-radium="true">

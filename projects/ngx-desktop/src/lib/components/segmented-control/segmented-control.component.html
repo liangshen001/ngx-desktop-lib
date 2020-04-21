@@ -1,10 +1,11 @@
 <div style="user-select: none; cursor: default; flex: 1 1 0;"
-     [style.margin]="margin"
-     [style.marginBottom]="marginBottom"
-     [style.marginTop]="marginTop"
-     [style.marginLeft]="marginLeft"
-     [style.marginRight]="marginRight"
-     [style.width]="width">
+     [ngxDesktopMargin]="margin"
+     [marginLeft]="marginLeft"
+     [marginBottom]="marginBottom"
+     [marginRight]="marginRight"
+     [marginTop]="marginTop"
+     [ngxDesktopWidth]="width"
+     (ngxDesktopWindowBlur)="windowBlur = $event">
   <div class="tab-label-wrap">
     <div data-radium="true"
          *ngFor="let segmented of this.segmentedList; let i = index"

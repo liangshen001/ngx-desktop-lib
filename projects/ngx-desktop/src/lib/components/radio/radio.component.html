@@ -1,9 +1,11 @@
   <div data-radium="true"
        class="radio-wrap"
+       [ngxDesktopOsClass]="os"
+       (osChange)="osChange($event)"
+       (ngxDesktopWindowBlur)="windowBlur = $event"
        [class.blur]="windowBlur"
        [class.checked]="model === value"
-       [class.disabled]="disabled"
-       [class]="os">
+       [class.disabled]="disabled">
     <label data-radium="true">
       <div data-radium="true" class="radio-input-wrap">
         <input type="radio"
@@ -13,8 +15,8 @@
                [disabled]="disabled"
                (ngModelChange)="changeValue($event)"
                data-radium="true">
-        <div data-radium="true" *ngIf="os === 'windows' && model === value" class="windows-radio-style"></div>
-        <div data-radium="true" *ngIf="os === 'mac'"
+        <div data-radium="true" *ngIf="currentOs === 'windows' && model === value" class="windows-radio-style"></div>
+        <div data-radium="true" *ngIf="currentOs === 'mac'"
              style="position: absolute; top: 7px; left: 5px; width: 6px; height: 6px; opacity: 1; transform: scale(1); transition: opacity 0s ease 0s, transform 0.2s ease 0s;">
           <svg viewBox="0 0 285 285" data-radium="true"
                style="z-index: 2; position: absolute; top: 0; left: 0; height: 6px;">

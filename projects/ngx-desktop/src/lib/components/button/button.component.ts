@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import {BaseComponent} from "../base.component";
 import {ColorUtils} from "../../utils/color.utils";
 import {OS_TOKEN, OsTypes} from "../../types/types";
-import {OsUtils} from "../../utils/os.utils";
+import {NgxDesktopService} from "../../ngx-desktop.service";
 
 
 export type MacColor = 'default' | 'blue';
@@ -13,119 +12,68 @@ export type WindowsColor = string;
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })
-export class ButtonComponent extends BaseComponent implements OnInit {
+export class ButtonComponent implements OnInit {
 
-  private _os: OsTypes;
+  mousedown: boolean;
+  windowBlur: boolean;
+  mouseover: boolean;
+  currentOs: OsTypes;
 
   @Input()
-  set os(os: OsTypes) {
-    this._os = os;
-    if (os === 'mac') {
-      this.paddingLeft = '13px';
-      this.paddingRight = '13px';
-    } else {
-      this.paddingLeft = '32px';
-      this.paddingRight = '32px';
-    }
-    this.padding = `${this.paddingTop} ${this.paddingLeft} ${this.paddingRight} ${this.paddingBottom}`;
-    this.margin = `${this.marginTop} ${this.marginLeft} ${this.marginRight} ${this.marginBottom}`;
-  }
-
-  get os() {
-    return this._os;
-  }
-
+  os: OsTypes;
   @Input()
   disabled: boolean;
-
   @Output()
   btnClick = new EventEmitter<MouseEvent>();
-
-
   @Input()
   theme: 'light' | 'dark';
-
   @Input()
   type: 'button' | 'submit' = 'button';
+  @Input()
+  size: string | number = 13;
+  @Input()
+  marginBottom: string | number;
+  @Input()
+  marginLeft: string | number;
+  @Input()
+  marginRight: string | number;
+  @Input()
+  marginTop: string | number;
+  @Input()
+  paddingBottom: string | number;
+  @Input()
+  paddingLeft: string | number;
+  @Input()
+  paddingRight: string | number;
+  @Input()
+  paddingTop: string | number;
+  @Input()
+  padding: string | number;
+  @Input()
+  margin: string | number;
 
-  size: string = '13px';
-
-  @Input('size')
-  set sizeS(size: string | number) {
-    this.size = ButtonComponent.getValue(size);
-  }
-
-  marginBottom: string = '0';
-  marginLeft: string = '0';
-  marginRight: string = '0';
-  marginTop: string = '0';
-  paddingBottom: string = '0';
-  paddingLeft: string = '0';
-  paddingRight: string = '0';
-  paddingTop: string = '0';
-
-  @Input('marginBottom')
-  set marginBottomS(marginBottom: string | number) {
-    this.marginBottom = ButtonComponent.getValue(marginBottom);
-  }
-
-  @Input('marginLeft')
-  set marginLeftS(marginLeft: string | number) {
-    this.marginLeft = ButtonComponent.getValue(marginLeft);
-  }
-
-  @Input('marginRight')
-  set marginRightS(marginRight: string | number) {
-    this.marginRight = ButtonComponent.getValue(marginRight);
-  }
-
-  @Input('marginTop')
-  set marginTopS(marginTop: string | number) {
-    this.marginTop = ButtonComponent.getValue(marginTop);
-  }
-
-  @Input('paddingBottom')
-  set paddingBottomS(paddingBottom: string | number) {
-    this.paddingBottom = ButtonComponent.getValue(paddingBottom);
-  }
-
-  @Input('paddingLeft')
-  set paddingLeftS(paddingLeft: string | number) {
-    this.paddingLeft = ButtonComponent.getValue(paddingLeft);
-  }
-
-  @Input('paddingRight')
-  set paddingRightS(paddingRight: string | number) {
-    this.paddingRight = ButtonComponent.getValue(paddingRight);
-  }
-
-  @Input('paddingTop')
-  set paddingTopS(paddingTop: string | number) {
-    this.paddingTop = ButtonComponent.getValue(paddingTop);
-  }
+  private _color: MacColor | WindowsColor;
+  darkenColor: string;
+  isDarkColor: boolean;
 
   @Input()
-  padding: string;
-  @Input()
-  margin: string;
+  set color(color: MacColor | WindowsColor) {
+    if (this._color !== color) {
+      this._color = color;
+      this.darkenColor = ColorUtils.darkenColor(color, .35);
+      this.isDarkColor = ColorUtils.isDarkColor(this.darkenColor);
+    }
+  }
+  get color() {
+    return this._color;
+  }
 
   get style() {
-    if (this.os === 'windows') {
-      return {
-        'background-color': this.color,
-        'border-color': this.color,
-        color: this.isDarkColor ? '#ffffff' : '#000000',
-        ...this.mouseover ? {
-          'border-color': this.darkenColor
-        } : {},
-        ...this.mousedown ? {
-          'background-color': this.darkenColor,
-          'border-color': this.darkenColor,
-          transform: 'scale(0.97)',
-          transition: 'transform .1s ease-in'
-        } : {}
-      };
-    } else if (this.os === 'mac') {
+    if (this.currentOs === 'mac') {
+      if (this.disabled) {
+      debugger;
+
+      }
       return {
         ...this.color === 'default' ? {
           'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
@@ -152,6 +100,21 @@ export class ButtonComponent extends BaseComponent implements OnInit {
           'border-color': '#dadada'
         } : {}
       };
+    } else if (this.currentOs === 'windows') {
+      return {
+        'background-color': this.color,
+        'border-color': this.color,
+        color: this.isDarkColor ? '#ffffff' : '#000000',
+        ...this.mouseover ? {
+          'border-color': this.darkenColor
+        } : {},
+        ...this.mousedown ? {
+          'background-color': this.darkenColor,
+          'border-color': this.darkenColor,
+          transform: 'scale(0.97)',
+          transition: 'transform .1s ease-in'
+        } : {}
+      };
     }
     return {};
   }
@@ -163,19 +126,33 @@ export class ButtonComponent extends BaseComponent implements OnInit {
     return value;
   }
 
-  constructor(@Inject(OS_TOKEN) private osConfig: OsTypes) {
-    super();
+  constructor(private ngxDesktopService: NgxDesktopService) {
   }
 
   ngOnInit(): void {
-    if (!this.os) {
-      this.os = this.osConfig;
-    }
-    if (!this.color) {
-      if (this.os === 'mac') {
+  }
+
+  osChange($event: "mac" | "windows") {
+    this.currentOs = $event;
+    if ($event === 'mac') {
+      if (this.color === undefined) {
         this.color = 'default';
-      } else {
+      }
+      if (this.paddingLeft === undefined) {
+        this.paddingLeft = '13px';
+      }
+      if (this.paddingRight === undefined) {
+        this.paddingRight = '13px';
+      }
+    } else {
+      if (this.color === undefined) {
         this.color = '#cccccc';
+      }
+      if (this.paddingLeft === undefined) {
+        this.paddingLeft = '32px';
+      }
+      if (this.paddingRight === undefined) {
+        this.paddingRight = '32px';
       }
     }
   }

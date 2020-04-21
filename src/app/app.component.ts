@@ -9,7 +9,6 @@ export class AppComponent {
   a;
   title = 'ngx-desktop-lib';
   aa() {
-    debugger;
     console.log(this.a);
   }
 }

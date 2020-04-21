@@ -29,72 +29,36 @@ export class SegmentedControlComponent extends ControlValueAccessorAbstractCompo
   segmentedList: QueryList<SegmentedControlItemComponent>;
 
   @Input()
-  height: string = 'auto';
+  height: string | number;
   @Input()
-  width: string = 'auto';
+  width: string | number;
 
   @Input()
   backgroundColor: string = 'rgba(0, 0, 0, 0.04)';
 
-  marginBottom: string = '0';
-  marginLeft: string = '0';
-  marginRight: string = '0';
-  marginTop: string = '0';
-  paddingBottom: string = '22px';
-  paddingLeft: string = '18px';
-  paddingRight: string = '18px';
-  paddingTop: string = '23px';
-
-  @Input('marginBottom')
-  set marginBottomS(marginBottom: string | number) {
-    this.marginBottom = SegmentedControlComponent.getValue(marginBottom);
-  }
-  @Input('marginLeft')
-  set marginLeftS(marginLeft: string | number) {
-    this.marginLeft = SegmentedControlComponent.getValue(marginLeft);
-  }
-
-  @Input('marginRight')
-  set marginRightS(marginRight: string | number) {
-    this.marginRight = SegmentedControlComponent.getValue(marginRight);
-  }
-
-  @Input('marginTop')
-  set marginTopS(marginTop: string | number) {
-    this.marginTop = SegmentedControlComponent.getValue(marginTop);
-  }
-
-  @Input('paddingBottom')
-  set paddingBottomS(paddingBottom: string | number) {
-    this.paddingBottom = SegmentedControlComponent.getValue(paddingBottom);
-  }
-
-  @Input('paddingLeft')
-  set paddingLeftS(paddingLeft: string | number) {
-    this.paddingLeft = SegmentedControlComponent.getValue(paddingLeft);
-  }
-
-  @Input('paddingRight')
-  set paddingRightS(paddingRight: string | number) {
-    this.paddingRight = SegmentedControlComponent.getValue(paddingRight);
-  }
-
-  @Input('paddingTop')
-  set paddingTopS(paddingTop: string | number) {
-    this.paddingTop = SegmentedControlComponent.getValue(paddingTop);
-  }
+  @Input()
+  marginBottom: string | number;
+  @Input()
+  marginLeft: string | number;
+  @Input()
+  marginRight: string | number;
+  @Input()
+  marginTop: string | number;
+  @Input()
+  paddingBottom: string | number = '22px';
+  @Input()
+  paddingLeft: string | number = '18px';
+  @Input()
+  paddingRight: string | number = '18px';
+  @Input()
+  paddingTop: string | number = '23px';
 
   @Input()
-  padding: string = `${this.paddingTop} ${this.paddingLeft} ${this.paddingRight} ${this.paddingBottom}`;
+  padding: string | number;
   @Input()
-  margin: string = `${this.marginTop} ${this.marginLeft} ${this.marginRight} ${this.marginBottom}`;
+  margin: string | number;
 
-  static getValue(value: string | number): string {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-    return value;
-  }
+  windowBlur: boolean;
 
   constructor() {
     super();

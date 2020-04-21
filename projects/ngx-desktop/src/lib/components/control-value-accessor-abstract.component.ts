@@ -1,8 +1,7 @@
 import {noop} from "rxjs";
 import {ControlValueAccessor} from "@angular/forms";
-import {BaseComponent} from "./base.component";
 
-export abstract class ControlValueAccessorAbstractComponent extends BaseComponent implements ControlValueAccessor {
+export abstract class ControlValueAccessorAbstractComponent implements ControlValueAccessor {
 
   disabled: boolean;
   model: any;

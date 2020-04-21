@@ -1,21 +1,22 @@
 <div class="box-wrap">
   <span class="lable">{{label}}</span>
   <div class="content-wrap"
-       [style.padding]="padding"
-       [style.background]="background"
-       [style.height]="height"
-       [style.width]="width"
-       [style.margin]="margin"
-       [style.justifyContent]="justifyContent"
-       [style.alignItems]="alignItems"
-       [style.marginBottom]="marginBottom"
-       [style.marginTop]="marginTop"
-       [style.marginLeft]="marginLeft"
-       [style.marginRight]="marginRight"
-       [style.paddingBottom]="paddingBottom"
-       [style.paddingLeft]="paddingLeft"
-       [style.paddingRight]="paddingRight"
-       [style.paddingTop]="paddingTop">
+       [ngxDesktopHeight]="height"
+       [ngxDesktopWidth]="width"
+       [ngxDesktopHorizontalAlignment]="horizontalAlignment"
+       [ngxDesktopVerticalAlignment]="verticalAlignment"
+       [ngxDesktopMargin]="margin"
+       [marginBottom]="marginBottom"
+       [marginTop]="marginTop"
+       [marginLeft]="marginLeft"
+       [marginRight]="marginRight"
+       [ngxDesktopPadding]="padding"
+       [paddingTop]="paddingTop"
+       [paddingLeft]="paddingLeft"
+       [paddingRight]="paddingRight"
+       [paddingBottom]="paddingBottom"
+       [style.color]="color"
+       [style.background]="background">
     <ng-content></ng-content>
   </div>
 </div>

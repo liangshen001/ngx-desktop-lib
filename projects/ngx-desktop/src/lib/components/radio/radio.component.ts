@@ -16,6 +16,9 @@ import {OsUtils} from "../../utils/os.utils";
 })
 export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
 
+  windowBlur: boolean;
+  currentOs: OsTypes;
+
   @Input()
   label: string;
   @Input()
@@ -23,22 +26,17 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   @Input()
   value: string;
 
-  private _os: OsTypes;
   @Input()
-  set os(os: OsTypes) {
-    this._os = os;
-  }
-  get os() {
-    return this._os;
-  }
+  os: OsTypes;
 
-  constructor(@Inject(OS_TOKEN) private osConfig: OsTypes) {
+  constructor() {
     super();
   }
 
   ngOnInit(): void {
-    if (!this.os) {
-      this.os = this.osConfig;
-    }
+  }
+
+  osChange($event: "mac" | "windows" | "auto") {
+    this.currentOs = $event;
   }
 }

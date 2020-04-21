@@ -24,49 +24,27 @@ export class TextInputComponent extends ControlValueAccessorAbstractComponent im
   @Input()
   color: string;
   @Input()
-  width: string = 'auto';
-
-  marginBottom: string = '0';
-  marginLeft: string = '0';
-  marginRight: string = '0';
-  marginTop: string = '0';
-
-  @Input('marginBottom')
-  set marginBottomS(marginBottom: string | number) {
-    this.marginBottom = TextInputComponent.getValue(marginBottom);
-  }
-
-  @Input('marginLeft')
-  set marginLeftS(marginLeft: string | number) {
-    this.marginLeft = TextInputComponent.getValue(marginLeft);
-  }
-
-  @Input('marginRight')
-  set marginRightS(marginRight: string | number) {
-    this.marginRight = TextInputComponent.getValue(marginRight);
-  }
-
-  @Input('marginTop')
-  set marginTopS(marginTop: string | number) {
-    this.marginTop = TextInputComponent.getValue(marginTop);
-  }
+  width: string | number;
   @Input()
-  margin: string;
+  marginBottom: string | number;
+  @Input()
+  marginLeft: string | number;
+  @Input()
+  marginRight: string | number;
+  @Input()
+  marginTop: string | number;
+  @Input()
+  margin: string | number;
 
   focus: boolean;
+  mouseover: boolean;
+  currentOs: OsTypes;
 
-
-  static getValue(value: string | number): string {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-    return value;
-  }
   get style() {
-    if (this.os === 'windows') {
+    if (this.currentOs === 'windows') {
       return {
         ...this.mouseover ? {
-          'border-color': 'rgb(100, 100, 100)',
+          'border-color': '#646464',
           background: 'rgba(255, 255, 255, 0.5)'
         } : {},
         ...this.focus ? {
@@ -78,18 +56,21 @@ export class TextInputComponent extends ControlValueAccessorAbstractComponent im
     return {};
   }
 
-  constructor(@Inject(OS_TOKEN) private osConfig: OsTypes) {
+  constructor() {
     super();
   }
 
   ngOnInit(): void {
-    if (!this.os) {
-      this.os = this.osConfig;
-    }
-    if (!this.color) {
-      if (this.os === 'mac') {
+  }
+
+  osChange($event: "mac" | "windows" | "auto") {
+    this.currentOs = $event;
+    if (this.os === 'mac') {
+      if (!this.color) {
         this.color = 'default';
-      } else {
+      }
+    } else {
+      if (!this.color) {
         this.color = '#0063AE';
       }
     }

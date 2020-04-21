@@ -2,6 +2,8 @@ import {Component, forwardRef, HostListener, Inject, Input, OnInit} from '@angul
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
+import {ColorUtils} from "../../utils/color.utils";
+import {MacColor, WindowsColor} from "../button/button.component";
 
 @Component({
   selector: 'ngx-desktop-checkbox',
@@ -15,19 +17,33 @@ import {OS_TOKEN, OsTypes} from "../../types/types";
 })
 export class CheckboxComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
 
+  windowBlur: boolean;
+  mouseover: boolean;
+  mousedown: boolean;
+  currentOs: OsTypes;
   @Input()
   os: OsTypes;
   @Input()
   label: string;
+
+  private _color: MacColor | WindowsColor;
+  darkenColor: string;
+  isDarkColor: boolean;
+
   @Input()
-  color: string;
+  set color(color: MacColor | WindowsColor) {
+    if (this._color !== color) {
+      this._color = color;
+      this.darkenColor = ColorUtils.darkenColor(color, .35);
+      this.isDarkColor = ColorUtils.isDarkColor(this.darkenColor);
+    }
+  }
+  get color() {
+    return this._color;
+  }
 
   get style() {
-    if (this.os === 'mac') {
-      return {
-
-      };
-    } else if (this.os === 'windows') {
+    if (this.currentOs === 'windows') {
       return {
         ...this.model ? {
           'border-color': this.color,
@@ -47,18 +63,21 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
     return {};
   }
 
-  constructor(@Inject(OS_TOKEN) private osConfig: OsTypes) {
+  constructor() {
     super();
   }
 
   ngOnInit(): void {
-    if (!this.os) {
-      this.os = this.osConfig;
-    }
-    if (!this.color) {
-      if (this.os === 'windows') {
+  }
+
+  osChange($event: "mac" | "windows") {
+    this.currentOs = $event;
+    if (this.currentOs === 'windows') {
+      if (!this.color) {
         this.color = '#0063AE';
-      } else {
+      }
+    } else {
+      if (!this.color) {
         this.color = 'default';
       }
     }

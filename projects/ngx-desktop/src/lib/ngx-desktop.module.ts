@@ -15,6 +15,19 @@ import {TextInputComponent} from "./components/text-input/text-input.component";
 import {ViewComponent} from "./components/view/view.component";
 import {TextComponent} from "./components/text/text.component";
 import {WindowComponent} from "./components/window/window.component";
+import {NgxDesktopSizeDirective} from "./directives/ngx-desktop-size.directive";
+import {NgxDesktopHeightDirective} from "./directives/ngx-desktop-height.directive";
+import {NgxDesktopWidthDirective} from "./directives/ngx-desktop-width.directive";
+import {NgxDesktopBoldDirective} from "./directives/ngx-desktop-bold.directive";
+import {NgxDesktopMarginDirective} from "./directives/ngx-desktop-margin.directive";
+import {NgxDesktopPaddingDirective} from "./directives/ngx-desktop-padding.directive";
+import {NgxDesktopHorizontalAlignmentDirective} from "./directives/ngx-desktop-horizontal-alignment.directive";
+import {NgxDesktopVerticalAlignmentDirective} from "./directives/ngx-desktop-vertical-alignment.directive";
+import {NgxDesktopOsClassDirective} from "./directives/ngx-desktop-os-class.directive";
+import {NgxDesktopMouseoverDirective} from "./directives/ngx-desktop-mouseover.directive";
+import {NgxDesktopFocusDirective} from "./directives/ngx-desktop-focus.directive";
+import {NgxDesktopMousedownDirective} from "./directives/ngx-desktop-mousedown.directive";
+import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blur.directive";
 
 
 @NgModule({
@@ -31,6 +44,19 @@ import {WindowComponent} from "./components/window/window.component";
     TextComponent,
     WindowComponent,
     ViewComponent,
+    NgxDesktopSizeDirective,
+    NgxDesktopHeightDirective,
+    NgxDesktopWidthDirective,
+    NgxDesktopBoldDirective,
+    NgxDesktopMarginDirective,
+    NgxDesktopPaddingDirective,
+    NgxDesktopHorizontalAlignmentDirective,
+    NgxDesktopVerticalAlignmentDirective,
+    NgxDesktopOsClassDirective,
+    NgxDesktopMouseoverDirective,
+    NgxDesktopFocusDirective,
+    NgxDesktopMousedownDirective,
+    NgxDesktopWindowBlurDirective,
   ],
   imports: [
     FormsModule,
@@ -49,15 +75,28 @@ import {WindowComponent} from "./components/window/window.component";
     TextComponent,
     WindowComponent,
     ViewComponent,
+    NgxDesktopSizeDirective,
+    NgxDesktopHeightDirective,
+    NgxDesktopWidthDirective,
+    NgxDesktopBoldDirective,
+    NgxDesktopMarginDirective,
+    NgxDesktopPaddingDirective,
+    NgxDesktopHorizontalAlignmentDirective,
+    NgxDesktopVerticalAlignmentDirective,
+    NgxDesktopOsClassDirective,
+    NgxDesktopMouseoverDirective,
+    NgxDesktopFocusDirective,
+    NgxDesktopMousedownDirective,
+    NgxDesktopWindowBlurDirective,
   ]
 })
 export class NgxDesktopModule {
-  static forRoot(os: OsTypes | 'auto' = 'auto'): ModuleWithProviders {
+  static forRoot(os: OsTypes = 'auto'): ModuleWithProviders {
     return {
       ngModule: NgxDesktopModule,
       providers: [{
         provide: OS_TOKEN,
-        useValue: os === 'auto' ? OsUtils.os() : os
+        useValue: os
       }]
     };
   }

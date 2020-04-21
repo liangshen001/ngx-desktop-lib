@@ -1,0 +1,19 @@
+.text-wrap {
+  user-select: none;
+  cursor: default;
+}
+
+.windows.text-wrap {
+  line-height: 25.96px;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  display: flex;
+  color: rgb(0, 0, 0);
+}
+.mac.text-wrap {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: white;
+
+}

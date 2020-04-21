@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {BoxModelComponent} from "../box-model.component";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'ngx-desktop-box',
@@ -12,95 +11,35 @@ export class BoxComponent implements OnInit {
   @Input()
   background: string = 'rgba(0, 0, 0, 0.04)';
   @Input()
-  height: string = 'auto';
+  color: string;
   @Input()
-  width: string = 'auto';
-
-  justifyContent: string;
+  height: string | number;
   @Input()
-  set horizontalAlignment(horizontalAlignment: 'left' | 'center' | 'right') {
-    if (horizontalAlignment === 'left') {
-      this.justifyContent = 'flex-start';
-    } else if (horizontalAlignment === 'right') {
-      this.justifyContent = 'flex-end';
-    } else if (horizontalAlignment === 'center') {
-      this.justifyContent = 'center';
-    }
-    this.justifyContent = 'normal';
-  }
-
-  alignItems: string;
+  width: string | number;
   @Input()
-  set verticalAlignment(verticalAlignment: 'top' | 'center' | 'bottom') {
-    if (verticalAlignment === 'top') {
-      this.alignItems = 'start';
-    } else if (verticalAlignment === 'center') {
-      this.alignItems = 'center';
-    } else if (verticalAlignment === 'bottom') {
-      this.alignItems = 'end';
-    }
-    this.alignItems = 'normal';
-  }
-
-  marginBottom: string = '0';
-  marginLeft: string = '0';
-  marginRight: string = '0';
-  marginTop: string = '0';
-  paddingBottom: string = '22px';
-  paddingLeft: string = '18px';
-  paddingRight: string = '18px';
-  paddingTop: string = '23px';
-
-  @Input('marginBottom')
-  set marginBottomS(marginBottom: string | number) {
-    this.marginBottom = BoxComponent.getValue(marginBottom);
-  }
-  @Input('marginLeft')
-  set marginLeftS(marginLeft: string | number) {
-    this.marginLeft = BoxComponent.getValue(marginLeft);
-  }
-
-  @Input('marginRight')
-  set marginRightS(marginRight: string | number) {
-    this.marginRight = BoxComponent.getValue(marginRight);
-  }
-
-  @Input('marginTop')
-  set marginTopS(marginTop: string | number) {
-    this.marginTop = BoxComponent.getValue(marginTop);
-  }
-
-  @Input('paddingBottom')
-  set paddingBottomS(paddingBottom: string | number) {
-    this.paddingBottom = BoxComponent.getValue(paddingBottom);
-  }
-
-  @Input('paddingLeft')
-  set paddingLeftS(paddingLeft: string | number) {
-    this.paddingLeft = BoxComponent.getValue(paddingLeft);
-  }
-
-  @Input('paddingRight')
-  set paddingRightS(paddingRight: string | number) {
-    this.paddingRight = BoxComponent.getValue(paddingRight);
-  }
-
-  @Input('paddingTop')
-  set paddingTopS(paddingTop: string | number) {
-    this.paddingTop = BoxComponent.getValue(paddingTop);
-  }
-
+  horizontalAlignment: 'left' | 'center' | 'right';
   @Input()
-  padding: string = `${this.paddingTop} ${this.paddingLeft} ${this.paddingRight} ${this.paddingBottom}`;
+  verticalAlignment: 'top' | 'center' | 'bottom';
   @Input()
-  margin: string = `${this.marginTop} ${this.marginLeft} ${this.marginRight} ${this.marginBottom}`;
-
-  static getValue(value: string | number): string {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-    return value;
-  }
+  marginBottom: string | number;
+  @Input()
+  marginLeft: string | number;
+  @Input()
+  marginRight: string | number;
+  @Input()
+  marginTop: string | number;
+  @Input()
+  paddingBottom: string | number;
+  @Input()
+  paddingLeft: string | number;
+  @Input()
+  paddingRight: string | number;
+  @Input()
+  paddingTop: string | number;
+  @Input()
+  padding: string | number;
+  @Input()
+  margin: string | number;
 
   constructor() {
   }
