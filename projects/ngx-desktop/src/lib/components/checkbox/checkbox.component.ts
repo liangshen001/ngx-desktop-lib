@@ -4,6 +4,7 @@ import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-a
 import {OS_TOKEN, OsTypes} from "../../types/types";
 import {ColorUtils} from "../../utils/color.utils";
 import {MacColor, WindowsColor} from "../button/button.component";
+import {NgxDesktopService} from "../../ngx-desktop.service";
 
 @Component({
   selector: 'ngx-desktop-checkbox',
@@ -20,9 +21,18 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
   windowBlur: boolean;
   mouseover: boolean;
   mousedown: boolean;
-  currentOs: OsTypes;
+
+  private _os: OsTypes;
   @Input()
-  os: OsTypes;
+  set os(os: OsTypes) {
+    this._os = os;
+    if (os === 'windows' && !this.color) {
+      this.color = '#0063AE';
+    }
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
   @Input()
   label: string;
 
@@ -43,7 +53,7 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
   }
 
   get style() {
-    if (this.currentOs === 'windows') {
+    if (this.os === 'windows') {
       return {
         ...this.model ? {
           'border-color': this.color,
@@ -63,23 +73,13 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
     return {};
   }
 
-  constructor() {
+  constructor(private ngxDesktopService: NgxDesktopService) {
     super();
   }
 
   ngOnInit(): void {
-  }
-
-  osChange($event: "mac" | "windows") {
-    this.currentOs = $event;
-    if (this.currentOs === 'windows') {
-      if (!this.color) {
-        this.color = '#0063AE';
-      }
-    } else {
-      if (!this.color) {
-        this.color = 'default';
-      }
+    if (this.os === 'windows' && !this.color) {
+      this.color = '#0063AE';
     }
   }
 }

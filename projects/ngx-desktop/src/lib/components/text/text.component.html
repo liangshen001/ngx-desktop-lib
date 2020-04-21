@@ -1,20 +1,26 @@
 <span class="text-wrap"
-      [ngxDesktopOsClass]="os"
-      [ngxDesktopSize]="size"
-      [ngxDesktopHeight]="height"
-      [ngxDesktopWidth]="width"
+      [class]="os"
       [ngxDesktopBold]="bold"
-      [ngxDesktopMargin]="margin"
-      [marginBottom]="marginBottom"
-      [marginTop]="marginTop"
-      [marginLeft]="marginLeft"
-      [marginRight]="marginRight"
-      [ngxDesktopPadding]="padding"
-      [paddingTop]="paddingTop"
-      [paddingLeft]="paddingLeft"
-      [paddingRight]="paddingRight"
-      [paddingBottom]="paddingBottom"
+      [style.margin]="margin | styleValue"
+      [style.marginBottom]="marginBottom | styleValue"
+      [style.marginRight]="marginRight | styleValue"
+      [style.marginTop]="marginTop | styleValue"
+      [style.marginLeft]="marginLeft | styleValue"
+      [style.padding]="padding | styleValue"
+      [style.paddingTop]="paddingTop | styleValue"
+      [style.paddingBottom]="paddingBottom | styleValue"
+      [style.paddingLeft]="paddingLeft | styleValue"
+      [style.paddingRight]="paddingRight | styleValue"
+      [style.fontSize]="size | styleValue:'13px'"
+      [style.height]="height | styleValue"
+      [style.width]="width | styleValue"
       [style.color]="color"
       [style.textAlign]="textAlign">
   <ng-content></ng-content>
 </span>
+
+<!--[ngxDesktopPadding]="padding"-->
+<!--[paddingTop]="paddingTop"-->
+<!--[paddingLeft]="paddingLeft"-->
+<!--[paddingRight]="paddingRight"-->
+<!--[paddingBottom]="paddingBottom"-->

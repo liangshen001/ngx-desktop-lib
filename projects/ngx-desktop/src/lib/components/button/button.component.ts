@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ColorUtils} from "../../utils/color.utils";
-import {OS_TOKEN, OsTypes} from "../../types/types";
+import {OsTypes} from "../../types/types";
+import {NgxDesktopService} from "../../ngx-desktop.service";
 
 
 export type MacColor = 'default' | 'blue';
@@ -9,17 +10,15 @@ export type WindowsColor = string;
 @Component({
   selector: 'ngx-desktop-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent implements OnInit {
 
   mousedown: boolean;
   windowBlur: boolean;
   mouseover: boolean;
-  currentOs: OsTypes;
 
-  @Input()
-  os: OsTypes;
   @Input()
   disabled: boolean;
   @Output()
@@ -51,6 +50,17 @@ export class ButtonComponent implements OnInit {
   @Input()
   margin: string | number;
 
+  private _os: OsTypes;
+  @Input()
+  set os(os: OsTypes) {
+    this._os = os;
+    if (os === 'windows' && !this.color) {
+      this.color = '#cccccc';
+    }
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
   private _color: MacColor | WindowsColor;
   darkenColor: string;
   isDarkColor: boolean;
@@ -68,16 +78,16 @@ export class ButtonComponent implements OnInit {
   }
 
   get style() {
-    if (this.currentOs === 'mac') {
+    if (this.os === 'mac') {
       return {
-        ...this.color === 'default' ? {
-          'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
-          'background-image': 'none',
-          color: 'initial'
-        } : {
+        ...this.color === 'blue' ? {
           'border-color': '#4CA2F9 #267FFC #015CFF',
           'background-image': '-webkit-linear-gradient(top, #6CB3FA 0%, #087EFF 100%)',
           color: 'rgba(255, 255, 255, .9)'
+        } : {
+          'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
+          'background-image': 'none',
+          color: 'initial'
         },
         ...this.windowBlur ? {
           'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
@@ -95,7 +105,7 @@ export class ButtonComponent implements OnInit {
           'border-color': '#dadada'
         } : {}
       };
-    } else if (this.currentOs === 'windows') {
+    } else {
       return {
         'background-color': this.color,
         'border-color': this.color,
@@ -111,37 +121,11 @@ export class ButtonComponent implements OnInit {
         } : {}
       };
     }
-    return {};
   }
 
-  constructor() {
+  constructor(private ngxDesktopService: NgxDesktopService) {
   }
 
   ngOnInit(): void {
-  }
-
-  osChange($event: "mac" | "windows") {
-    this.currentOs = $event;
-    if ($event === 'mac') {
-      if (this.color === undefined) {
-        this.color = 'default';
-      }
-      if (this.paddingLeft === undefined) {
-        this.paddingLeft = '13px';
-      }
-      if (this.paddingRight === undefined) {
-        this.paddingRight = '13px';
-      }
-    } else {
-      if (this.color === undefined) {
-        this.color = '#cccccc';
-      }
-      if (this.paddingLeft === undefined) {
-        this.paddingLeft = '32px';
-      }
-      if (this.paddingRight === undefined) {
-        this.paddingRight = '32px';
-      }
-    }
   }
 }

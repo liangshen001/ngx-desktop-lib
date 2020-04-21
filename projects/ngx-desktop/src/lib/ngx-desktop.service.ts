@@ -22,6 +22,10 @@ export class NgxDesktopService {
     return defaultValue;
   }
 
+  isMac(os: OsTypes) {
+    return this.getOs(os) === 'mac';
+  }
+
   getOs(os: OsTypes) {
     if (os) {
       if (os === 'auto') {

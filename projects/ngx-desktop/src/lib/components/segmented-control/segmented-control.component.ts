@@ -27,15 +27,12 @@ export class SegmentedControlComponent extends ControlValueAccessorAbstractCompo
 
   @ContentChildren(SegmentedControlItemComponent)
   segmentedList: QueryList<SegmentedControlItemComponent>;
-
   @Input()
   height: string | number;
   @Input()
   width: string | number;
-
   @Input()
   backgroundColor: string = 'rgba(0, 0, 0, 0.04)';
-
   @Input()
   marginBottom: string | number;
   @Input()
@@ -45,14 +42,13 @@ export class SegmentedControlComponent extends ControlValueAccessorAbstractCompo
   @Input()
   marginTop: string | number;
   @Input()
-  paddingBottom: string | number = '22px';
+  paddingBottom: string | number;
   @Input()
-  paddingLeft: string | number = '18px';
+  paddingLeft: string | number;
   @Input()
-  paddingRight: string | number = '18px';
+  paddingRight: string | number;
   @Input()
-  paddingTop: string | number = '23px';
-
+  paddingTop: string | number;
   @Input()
   padding: string | number;
   @Input()

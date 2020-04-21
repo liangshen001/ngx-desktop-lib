@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {OsTypes} from "../../types/types";
 
 @Component({
   selector: 'ngx-desktop-label',
@@ -7,7 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class LabelComponent implements OnInit {
   @Input()
-  color: string = '#000000';
+  os: OsTypes;
+  @Input()
+  color: string;
   @Input()
   height: string | number;
   @Input()

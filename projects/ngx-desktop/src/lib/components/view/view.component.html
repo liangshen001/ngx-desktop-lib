@@ -1,3 +1,17 @@
-<div class="view-wrap">
+<div class="view-wrap"
+     [ngxDesktopHorizontalAlignment]="horizontalAlignment"
+     [ngxDesktopVerticalAlignment]="verticalAlignment"
+     [style.margin]="margin | styleValue"
+     [style.marginBottom]="marginBottom | styleValue"
+     [style.marginRight]="marginRight | styleValue"
+     [style.marginTop]="marginTop | styleValue"
+     [style.marginLeft]="marginLeft | styleValue"
+     [style.padding]="padding | styleValue"
+     [style.paddingTop]="paddingTop | styleValue"
+     [style.paddingBottom]="paddingBottom | styleValue"
+     [style.paddingLeft]="paddingLeft | styleValue"
+     [style.paddingRight]="paddingRight | styleValue"
+     [style.height]="height | styleValue"
+     [style.width]="width | styleValue">
   <ng-content></ng-content>
 </div>

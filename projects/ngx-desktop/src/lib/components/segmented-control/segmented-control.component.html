@@ -1,10 +1,10 @@
 <div style="user-select: none; cursor: default; flex: 1 1 0;"
-     [ngxDesktopMargin]="margin"
-     [marginLeft]="marginLeft"
-     [marginBottom]="marginBottom"
-     [marginRight]="marginRight"
-     [marginTop]="marginTop"
-     [ngxDesktopWidth]="width"
+     [style.margin]="margin | styleValue"
+     [style.marginBottom]="marginBottom | styleValue"
+     [style.marginRight]="marginRight | styleValue"
+     [style.marginTop]="marginTop | styleValue"
+     [style.marginLeft]="marginLeft | styleValue"
+     [style.width]="width | styleValue"
      (ngxDesktopWindowBlur)="windowBlur = $event">
   <div class="tab-label-wrap">
     <div data-radium="true"
@@ -28,12 +28,12 @@
 <!--    </div>-->
   </div>
   <div class="content-wrap"
-       [style.height]="height"
-       [style.backgroundColor]="backgroundColor"
-       [style.paddingBottom]="paddingBottom"
-       [style.paddingLeft]="paddingLeft"
-       [style.paddingRight]="paddingRight"
-       [style.paddingTop]="paddingTop">
+       [style.height]="height | styleValue"
+       [style.padding]="padding | styleValue:'23px 18px 22px 18px'"
+       [style.paddingTop]="paddingTop | styleValue"
+       [style.paddingBottom]="paddingBottom | styleValue"
+       [style.paddingLeft]="paddingLeft | styleValue"
+       [style.paddingRight]="paddingRight | styleValue">
       <ng-content></ng-content>
 <!--      <span style="display: block; user-select: none; cursor: default; font-size: 13px; color: rgb(0, 0, 0);">Content 1</span>-->
   </div>

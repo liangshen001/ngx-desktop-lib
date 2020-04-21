@@ -9,7 +9,7 @@ export class BoxComponent implements OnInit {
   @Input()
   label: string;
   @Input()
-  background: string = 'rgba(0, 0, 0, 0.04)';
+  background: string;
   @Input()
   color: string;
   @Input()

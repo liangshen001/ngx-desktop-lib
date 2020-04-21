@@ -19,8 +19,15 @@ import {OsTypes} from "../../types/types";
   styleUrls: ['./text.component.css']
 })
 export class TextComponent implements OnInit {
+
+  private _os: OsTypes;
   @Input()
-  os: OsTypes;
+  set os(os: OsTypes) {
+    this._os = os;
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
   @Input()
   size: string | number = 13;
   @Input()
@@ -28,7 +35,7 @@ export class TextComponent implements OnInit {
   @Input()
   background: string;
   @Input()
-  textAlign: string;
+  textAlign: 'left' | 'center' | 'right';
   @Input()
   height: string | number;
   @Input()
@@ -56,7 +63,7 @@ export class TextComponent implements OnInit {
   @Input()
   paddingBottom: number | string;
 
-  constructor() {
+  constructor(private ngxDesktopService: NgxDesktopService) {
   }
   ngOnInit(): void {
   }

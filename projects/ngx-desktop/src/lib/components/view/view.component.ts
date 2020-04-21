@@ -19,22 +19,37 @@ import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-a
 export class ViewComponent implements OnInit {
 
   @Input()
-  label: string;
+  horizontalAlignment: 'left' | 'center' | 'right';
   @Input()
-  disabled: boolean;
-
-  labelMousedown: boolean;
-
-  show: boolean;
+  verticalAlignment: 'top' | 'center' | 'bottom';
+  @Input()
+  height: string | number;
+  @Input()
+  width: string | number;
+  @Input()
+  margin: number | string;
+  @Input()
+  marginTop: number | string;
+  @Input()
+  marginLeft: number | string;
+  @Input()
+  marginRight: number | string;
+  @Input()
+  marginBottom: number | string;
+  @Input()
+  padding: number | string;
+  @Input()
+  paddingTop: number | string;
+  @Input()
+  paddingLeft: number | string;
+  @Input()
+  paddingRight: number | string;
+  @Input()
+  paddingBottom: number | string;
 
   constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  @HostListener('window:mouseup')
-  windowMouseupListener() {
-    this.labelMousedown = false;
   }
 }

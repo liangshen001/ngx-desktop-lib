@@ -4,13 +4,14 @@ import {OsTypes} from "../types/types";
 
 @Directive({
   selector: '[ngxDesktopOsClass]',
+  exportAs: 'ngxDeskTopOs'
 })
 export class NgxDesktopOsClassDirective {
 
   @Output()
   osChange = new EventEmitter<OsTypes>();
 
-  private os: OsTypes;
+  public os: OsTypes;
 
   @Input()
   set ngxDesktopOsClass(ngxDesktopOsClass: OsTypes) {
@@ -31,6 +32,12 @@ export class NgxDesktopOsClassDirective {
     return this.os === 'mac';
   }
 
+  isMac() {
+    return this.os === 'mac';
+  }
+  styleDefaultValue(macStyle: any, windowsStyle: any) {
+    return this.isMac() ? macStyle : windowsStyle;
+  }
   constructor(private ngxDesktopService: NgxDesktopService,
               private elementRef: ElementRef,
               private renderer2: Renderer2) {

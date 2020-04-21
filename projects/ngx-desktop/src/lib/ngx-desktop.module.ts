@@ -28,6 +28,7 @@ import {NgxDesktopMouseoverDirective} from "./directives/ngx-desktop-mouseover.d
 import {NgxDesktopFocusDirective} from "./directives/ngx-desktop-focus.directive";
 import {NgxDesktopMousedownDirective} from "./directives/ngx-desktop-mousedown.directive";
 import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blur.directive";
+import {StyleValuePipe} from "./pipes/style-value.pipe";
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blu
     NgxDesktopFocusDirective,
     NgxDesktopMousedownDirective,
     NgxDesktopWindowBlurDirective,
+    StyleValuePipe,
   ],
   imports: [
     FormsModule,
@@ -88,6 +90,7 @@ import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blu
     NgxDesktopFocusDirective,
     NgxDesktopMousedownDirective,
     NgxDesktopWindowBlurDirective,
+    StyleValuePipe,
   ]
 })
 export class NgxDesktopModule {
