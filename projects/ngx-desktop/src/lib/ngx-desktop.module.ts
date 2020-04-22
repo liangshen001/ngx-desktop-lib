@@ -30,6 +30,10 @@ import {NgxDesktopMousedownDirective} from "./directives/ngx-desktop-mousedown.d
 import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blur.directive";
 import {StyleValuePipe} from "./pipes/style-value.pipe";
 import {TitleBarComponent} from "./components/title-bar/title-bar.component";
+import {ProgressCircleComponent} from "./components/progress-circle/progress-circle.component";
+import {ToolbarComponent} from "./components/toolbar/toolbar.component";
+import {ToolbarNavComponent} from "./components/toolbar-nav/toolbar-nav.component";
+import {ToolbarNavItemComponent} from "./components/toolbar-nav-item/toolbar-nav-item.component";
 
 
 @NgModule({
@@ -61,6 +65,10 @@ import {TitleBarComponent} from "./components/title-bar/title-bar.component";
     NgxDesktopWindowBlurDirective,
     StyleValuePipe,
     TitleBarComponent,
+    ProgressCircleComponent,
+    ToolbarComponent,
+    ToolbarNavComponent,
+    ToolbarNavItemComponent,
   ],
   imports: [
     FormsModule,
@@ -94,6 +102,10 @@ import {TitleBarComponent} from "./components/title-bar/title-bar.component";
     NgxDesktopWindowBlurDirective,
     StyleValuePipe,
     TitleBarComponent,
+    ProgressCircleComponent,
+    ToolbarComponent,
+    ToolbarNavComponent,
+    ToolbarNavItemComponent,
   ]
 })
 export class NgxDesktopModule {

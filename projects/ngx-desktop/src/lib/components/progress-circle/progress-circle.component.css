@@ -1,0 +1,8 @@
+.progress-circle-container {
+  position: relative;
+  visibility: visible; display: block;
+}
+
+svg {
+  position: relative;
+}

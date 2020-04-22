@@ -2,9 +2,10 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output}
 import {ColorUtils} from "../../utils/color.utils";
 import {OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
+import {macStyle} from "./mac-style";
 
 
-export type MacColor = 'default' | 'blue';
+export type MacColor = 'default' | 'blue' | 'pink';
 export type WindowsColor = string;
 
 @Component({
@@ -79,25 +80,14 @@ export class ButtonComponent implements OnInit {
 
   get style() {
     if (this.os === 'mac') {
+      const colorStyle = macStyle[this.color] || macStyle.default;
       return {
-        ...this.color === 'blue' ? {
-          'border-color': '#4CA2F9 #267FFC #015CFF',
-          'background-image': '-webkit-linear-gradient(top, #6CB3FA 0%, #087EFF 100%)',
-          color: 'rgba(255, 255, 255, .9)'
-        } : {
-          'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
-          'background-image': 'none',
-          color: 'initial'
-        },
+        ...colorStyle.normal,
+        ...this.mousedown ? colorStyle.mousedown : {},
         ...this.windowBlur ? {
           'border-color': '#C8C8C8 #C2C2C2 #ACACAC',
           'background-image': 'none',
           color: 'initial'
-        } : {},
-        ...this.mousedown ? {
-          'border-color': '#4C98FE #125EED #0010DB',
-          'background-image': '-webkit-linear-gradient(top, #6CB3FA 0%, #0564E3 100%)',
-          color: 'rgba(255, 255, 255, 0.9)'
         } : {},
         ...this.disabled ? {
           color: '#bababa',

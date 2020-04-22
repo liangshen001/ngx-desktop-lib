@@ -1,0 +1,107 @@
+
+.container {
+  -webkit-app-region: drag;
+  user-select: none;
+  cursor: default;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-height: 22px;
+  background-image: -webkit-linear-gradient(top, #EDEDED 0px, #EDEDED 1px, #E7E7E7 2px, #D1D1D1 100%);
+  border-bottom: 1px solid #AFAFAF;
+  border-top: 1px solid #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.title-wrap {
+  user-select: none;
+  cursor: default;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0;
+  color: #4D4D4D;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+  white-space: nowrap;
+  /*text-overflow: ellipsis;*/
+  overflow: hidden;
+  padding-right: 40px;
+  padding-left: 15px;
+}
+
+.controls-wrap {
+  user-select: none;
+  cursor: default;
+  display: flex;
+  width: 61px;
+}
+
+.controls-btn-wrap {
+  user-select: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  margin-top: 1px;
+  margin-left: 4px;
+  margin-right: 4px;
+  line-height: 0;
+}
+
+.mouseover .close-btn-wrap, .close-btn-wrap {
+  background-color: #FF5F57;
+  border-color: #E2463F;
+}
+
+.mouseover .minimize-btn-wrap, .minimize-btn-wrap {
+  background-color: #FFBD2E;
+  border-color: #E1A116;
+}
+
+.mouseover .maximize-btn-wrap, .maximize-btn-wrap {
+  background-color: #28C940;
+  border-color: #12AC28;
+}
+
+.closeMousedown.close-btn-wrap {
+  background-color: #BF4943 !important;
+  border-color: #AD3934 !important;
+}
+
+.minimizeMousedown.minimize-btn-wrap {
+  background-color: #BF9123 !important;
+  border-color: #AD7D15 !important;
+}
+
+.maximizeMousedown.maximize-btn-wrap {
+  background-color: #1F9A31 !important;
+  border-color: #128622 !important;
+}
+.windowBlur a {
+  background-color: #DDDDDD;
+  border-color: #D0D0D0;
+}
+.windowBlur .title-wrap {
+  color: #D3D3D3;
+}
+.windowBlur.container {
+  background-image: -webkit-linear-gradient(top, #FAFAFA 0px, #F6F6F6 2px, #F6F6F6 100%);
+  border-bottom: 1px solid #D1D1D1;
+}
+
+svg {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+}
+
+.mouseover svg {
+  opacity: 1 !important;
+}

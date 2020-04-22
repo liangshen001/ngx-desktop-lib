@@ -1,17 +1,18 @@
 import {
-  Component,
+  Component, ContentChild,
   EventEmitter,
   forwardRef,
   HostListener,
   Input,
   OnInit,
-  Output,
+  Output, ViewChild,
   ViewContainerRef
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
+import {ToolbarComponent} from "../toolbar/toolbar.component";
 
 @Component({
   selector: 'ngx-desktop-title-bar',
@@ -19,6 +20,9 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
   styleUrls: ['./title-bar.component.css']
 })
 export class TitleBarComponent implements OnInit {
+
+  @ContentChild(ToolbarComponent)
+  toolbarComponent: ToolbarComponent;
 
   private _os: OsTypes;
   @Input()
@@ -47,41 +51,31 @@ export class TitleBarComponent implements OnInit {
   @Output()
   onResizeClick = new EventEmitter();
 
+  windowBlur: boolean;
+  mouseover: boolean;
+  closeMousedown: boolean;
+  minimizeMousedown: boolean;
+  maximizeMousedown: boolean;
 
   @Input()
-  horizontalAlignment: 'left' | 'center' | 'right';
-  @Input()
-  verticalAlignment: 'top' | 'center' | 'bottom';
-  @Input()
-  height: string | number;
-  @Input()
-  width: string | number;
-  @Input()
-  margin: number | string;
-  @Input()
-  marginTop: number | string;
-  @Input()
-  marginLeft: number | string;
-  @Input()
-  marginRight: number | string;
-  @Input()
-  marginBottom: number | string;
-  @Input()
-  padding: number | string;
-  @Input()
-  paddingTop: number | string;
-  @Input()
-  paddingLeft: number | string;
-  @Input()
-  paddingRight: number | string;
-  @Input()
-  paddingBottom: number | string;
-  @Input()
-  background: string | boolean = false;
+  maximized: boolean;
+
+  @Output()
+  maximizedChange = new EventEmitter<boolean>();
 
   constructor(private ngxDesktopService: NgxDesktopService) {
   }
 
   ngOnInit(): void {
+  }
+
+  triggerMaximize() {
+    this.maximized = !this.maximized;
+    this.maximizedChange.emit(this.maximized);
+    if (this.maximized) {
+      this.onMaximizeClick.emit();
+    } else {
+      this.onResizeClick.emit();
+    }
   }
 }

@@ -9,15 +9,16 @@ export class NgxDesktopHorizontalAlignmentDirective {
   private value: string;
 
   @Input()
-  set ngxDesktopHorizontalAlignment(horizontalAlignment: 'left' | 'center' | 'right') {
+  set ngxDesktopHorizontalAlignment(horizontalAlignment: HorizontalAlignmentTypes) {
     if (horizontalAlignment === 'left') {
       this.value = 'flex-start';
     } else if (horizontalAlignment === 'right') {
       this.value = 'flex-end';
     } else if (horizontalAlignment === 'center') {
       this.value = 'center';
+    } else {
+      this.value = 'normal';
     }
-    this.value = 'normal';
   }
 
   @HostBinding('style.justify-content')
@@ -28,3 +29,5 @@ export class NgxDesktopHorizontalAlignmentDirective {
   constructor(private ngxDesktopService: NgxDesktopService) {}
 
 }
+
+export type HorizontalAlignmentTypes = 'left' | 'center' | 'right';

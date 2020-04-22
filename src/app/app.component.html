@@ -11,7 +11,7 @@
     </ngx-desktop-text>
   </ngx-desktop-box>
   <ngx-desktop-button os="mac" color="blue" margin="10px">button</ngx-desktop-button>
-  <ngx-desktop-button os="windows">button</ngx-desktop-button>
+  <ngx-desktop-button os="mac" color="pink">button</ngx-desktop-button>
   <ngx-desktop-checkbox label="one" os="mac"></ngx-desktop-checkbox>
   <ngx-desktop-checkbox label="two" os="mac"></ngx-desktop-checkbox>
   <ngx-desktop-checkbox label="one" os="windows"></ngx-desktop-checkbox>
@@ -20,11 +20,27 @@
   <ngx-desktop-label os="mac">testtest</ngx-desktop-label>
 
   <ngx-desktop-view os="mac">
-    <ngx-desktop-radio [name]="'123'" label="123" value="test"></ngx-desktop-radio>
-    <ngx-desktop-radio [name]="'123'" label="234" value="test2"></ngx-desktop-radio>
+    <ngx-desktop-radio os="mac"  [name]="'123'" label="123" value="test"></ngx-desktop-radio>
+    <ngx-desktop-radio os="mac" [name]="'123'" label="234" value="test2"></ngx-desktop-radio>
   </ngx-desktop-view>
   <ngx-desktop-view os="mac" background>
     <ngx-desktop-radio os="windows" [name]="'123'" label="123" value="tes2"></ngx-desktop-radio>
-    <ngx-desktop-radio os="windows" [name]="'123'" label="234" value="test"></ngx-desktop-radio>
+    <ngx-desktop-radio  os="windows" [name]="'123'" label="234" value="test"></ngx-desktop-radio>
   </ngx-desktop-view>
+  <ngx-desktop-progress-circle os="windows"></ngx-desktop-progress-circle>
+  <ngx-desktop-progress-circle os="mac"></ngx-desktop-progress-circle>
+
+  <ngx-desktop-title-bar [maximized]="true">
+    <ngx-desktop-toolbar>
+      <ngx-desktop-toolbar-nav>
+        <ngx-desktop-toolbar-nav-item [title]="'123'" [icon]="icon"></ngx-desktop-toolbar-nav-item>
+        <ngx-desktop-toolbar-nav-item [title]="'123'" [icon]="icon"></ngx-desktop-toolbar-nav-item>
+      </ngx-desktop-toolbar-nav>
+    </ngx-desktop-toolbar>
+  </ngx-desktop-title-bar>
+  <ng-template #icon>
+    <svg x="0px" y="0px" width="25px" height="21.7px" viewBox="0 0 25 21.7">
+      <polygon points="6.2,21.7 0,10.8 6.2,0 18.8,0 25,10.8 18.8,21.7 "/>
+    </svg>
+  </ng-template>
 </div>

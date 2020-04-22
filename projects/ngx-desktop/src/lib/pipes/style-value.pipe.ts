@@ -9,7 +9,7 @@ export class StyleValuePipe implements PipeTransform {
 
   constructor() {}
 
-  transform(value: string | number | boolean, ...args: any[]): any {
+  transform(value: StyleValueTypes | boolean, ...args: any[]): any {
     if (typeof value === 'number') {
       return `${value}px`;
     } else if (typeof value === 'boolean') {
@@ -19,5 +19,6 @@ export class StyleValuePipe implements PipeTransform {
     }
     return args[0] ? args[0] : 'no-set';
   }
-
 }
+
+export type StyleValueTypes = string | number;

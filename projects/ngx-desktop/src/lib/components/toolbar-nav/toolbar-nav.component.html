@@ -1,0 +1,17 @@
+<div style="display: flex; align-items: center;"
+     [style.opacity]="windowBlur ? '0.5' : '1'"
+     [style.height]="height | styleValue : '54px'"
+     [style.width]="width | styleValue"
+     (ngxDesktopWindowBlur)="windowBlur = $event">
+  <div *ngFor="let toolbarNavItemComponent of toolbarNavItemComponents; let i = index;"
+       class="toolbar-nav-item"
+       [class.selected]="i === selectedIndex">
+    <a (click)="selectedIndex = i;selectedIndexChange.emit(i)">
+      <div class="icon-wrap">
+        <ng-container *ngTemplateOutlet="toolbarNavItemComponent.icon"></ng-container>
+      </div>
+      <span class="title-wrap">
+        {{toolbarNavItemComponent.title}}
+      </span>
+    </a>
+  </div>

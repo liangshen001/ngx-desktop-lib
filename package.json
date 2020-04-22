@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "publish:ngx-desktop": "npm run build:@longtu/platform-bi && npm run adduser:hosted && npm publish --access public dist/longtu/platform-bi && npm run adduser:group"
   },
   "private": true,
   "dependencies": {

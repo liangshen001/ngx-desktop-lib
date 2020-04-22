@@ -1,0 +1,49 @@
+.toolbar-nav-item a {
+  -webkit-app-region: no-drag;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 64px;
+}
+
+.icon-wrap {
+  height: 25px;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+::ng-deep .title-wrap {
+  display: block;
+  user-select: none;
+  cursor: default;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  color: #1E1C1E;
+  line-height: 13.2px;
+}
+
+::ng-deep .toolbar-nav-item a svg * {
+  fill: #363336;
+  fill-opacity: .8;
+}
+
+::ng-deep .toolbar-nav-item a:active svg * {
+  fill: #1e1c1e;
+  fill-opacity: .9;
+}
+
+::ng-deep .toolbar-nav-item.selected svg * {
+  fill: #007bfa;
+  fill-opacity: 1;
+}
+
+::ng-deep .toolbar-nav-item.selected a:active svg * {
+  fill: #003dd6;
+  fill-opacity: 1;
+}
