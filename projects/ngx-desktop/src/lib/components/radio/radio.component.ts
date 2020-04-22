@@ -3,6 +3,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
 import {OsUtils} from "../../utils/os.utils";
+import {NgxDesktopService} from "../../ngx-desktop.service";
 
 @Component({
   selector: 'ngx-desktop-radio',
@@ -17,7 +18,6 @@ import {OsUtils} from "../../utils/os.utils";
 export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
 
   windowBlur: boolean;
-  currentOs: OsTypes;
 
   @Input()
   label: string;
@@ -26,17 +26,19 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   @Input()
   value: string;
 
+  private _os: OsTypes;
   @Input()
-  os: OsTypes;
+  set os(os: OsTypes) {
+    this._os = os;
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
 
-  constructor() {
+  constructor(private ngxDesktopService: NgxDesktopService) {
     super();
   }
 
   ngOnInit(): void {
-  }
-
-  osChange($event: "mac" | "windows" | "auto") {
-    this.currentOs = $event;
   }
 }

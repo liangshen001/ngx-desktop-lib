@@ -22,7 +22,7 @@ export class ButtonComponent implements OnInit {
   @Input()
   disabled: boolean;
   @Output()
-  btnClick = new EventEmitter<MouseEvent>();
+  onClick = new EventEmitter<MouseEvent>();
   @Input()
   theme: 'light' | 'dark';
   @Input()

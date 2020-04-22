@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {OsTypes} from "../../types/types";
+import {NgxDesktopService} from "../../ngx-desktop.service";
 
 @Component({
   selector: 'ngx-desktop-label',
@@ -7,8 +8,14 @@ import {OsTypes} from "../../types/types";
   styleUrls: ['./label.component.css']
 })
 export class LabelComponent implements OnInit {
+  private _os: OsTypes;
   @Input()
-  os: OsTypes;
+  set os(os: OsTypes) {
+    this._os = os;
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
   @Input()
   color: string;
   @Input()
@@ -41,7 +48,7 @@ export class LabelComponent implements OnInit {
   @Input()
   margin: string | number;
 
-  constructor() {
+  constructor(private ngxDesktopService: NgxDesktopService) {
   }
 
   ngOnInit(): void {

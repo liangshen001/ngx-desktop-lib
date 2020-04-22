@@ -14,11 +14,11 @@ import {OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
 
 @Component({
-  selector: 'ngx-desktop-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  selector: 'ngx-desktop-title-bar',
+  templateUrl: './title-bar.component.html',
+  styleUrls: ['./title-bar.component.css']
 })
-export class ViewComponent implements OnInit {
+export class TitleBarComponent implements OnInit {
 
   private _os: OsTypes;
   @Input()
@@ -28,6 +28,26 @@ export class ViewComponent implements OnInit {
   get os() {
     return this.ngxDesktopService.getOs(this._os);
   }
+  @Input()
+  title: string;
+  @Input()
+  controls: boolean = false;
+  @Input()
+  inset: boolean = false;
+  @Input()
+  isFullscreen: boolean = false;
+  @Input()
+  transparent: boolean = false;
+  @Output()
+  onCloseClick = new EventEmitter();
+  @Output()
+  onMaximizeClick = new EventEmitter();
+  @Output()
+  onMinimizeClick = new EventEmitter();
+  @Output()
+  onResizeClick = new EventEmitter();
+
+
   @Input()
   horizontalAlignment: 'left' | 'center' | 'right';
   @Input()

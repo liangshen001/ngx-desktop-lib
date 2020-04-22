@@ -26,7 +26,7 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
   @Input()
   set os(os: OsTypes) {
     this._os = os;
-    if (os === 'windows' && !this.color) {
+    if (this.os === 'windows' && !this.color) {
       this.color = '#0063AE';
     }
   }

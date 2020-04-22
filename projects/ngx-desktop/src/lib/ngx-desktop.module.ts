@@ -29,6 +29,7 @@ import {NgxDesktopFocusDirective} from "./directives/ngx-desktop-focus.directive
 import {NgxDesktopMousedownDirective} from "./directives/ngx-desktop-mousedown.directive";
 import {NgxDesktopWindowBlurDirective} from "./directives/ngx-desktop-window-blur.directive";
 import {StyleValuePipe} from "./pipes/style-value.pipe";
+import {TitleBarComponent} from "./components/title-bar/title-bar.component";
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {StyleValuePipe} from "./pipes/style-value.pipe";
     NgxDesktopMousedownDirective,
     NgxDesktopWindowBlurDirective,
     StyleValuePipe,
+    TitleBarComponent,
   ],
   imports: [
     FormsModule,
@@ -91,6 +93,7 @@ import {StyleValuePipe} from "./pipes/style-value.pipe";
     NgxDesktopMousedownDirective,
     NgxDesktopWindowBlurDirective,
     StyleValuePipe,
+    TitleBarComponent,
   ]
 })
 export class NgxDesktopModule {

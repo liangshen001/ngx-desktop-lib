@@ -20,11 +20,11 @@
   <ngx-desktop-label os="mac">testtest</ngx-desktop-label>
 
   <ngx-desktop-view os="mac">
-    <ngx-desktop-radio [name]="'123'" label="123" value="123"></ngx-desktop-radio>
-    <ngx-desktop-radio [name]="'123'" label="234" value="234"></ngx-desktop-radio>
+    <ngx-desktop-radio [name]="'123'" label="123" value="test"></ngx-desktop-radio>
+    <ngx-desktop-radio [name]="'123'" label="234" value="test2"></ngx-desktop-radio>
   </ngx-desktop-view>
-  <ngx-desktop-view os="windows">
-    <ngx-desktop-radio [name]="'123'" label="123" value="123"></ngx-desktop-radio>
-    <ngx-desktop-radio [name]="'123'" label="234" value="234"></ngx-desktop-radio>
+  <ngx-desktop-view os="mac" background>
+    <ngx-desktop-radio os="windows" [name]="'123'" label="123" value="tes2"></ngx-desktop-radio>
+    <ngx-desktop-radio os="windows" [name]="'123'" label="234" value="test"></ngx-desktop-radio>
   </ngx-desktop-view>
 </div>
