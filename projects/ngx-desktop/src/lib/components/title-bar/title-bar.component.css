@@ -1,12 +1,78 @@
 
-.container {
+.title-bar-container {
   -webkit-app-region: drag;
   user-select: none;
   cursor: default;
   width: 100%;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
+}
+
+.title-container {
+  user-select: none;
+  cursor: default;
+}
+
+.controls-container {
+  user-select: none;
+  cursor: default;
+  display: flex;
+}
+
+.controls-btn-wrap {
+  user-select: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+  line-height: 0;
+}
+
+
+.windows.title-bar-container {
+  height: 31px;
+  /*border-color: #0063AE*/
+  border-color: #ffffff;
+}
+
+.windows .title-container {
+  padding-left: 12px;
+  font-family: "Segoe UI", Arial, serif;
+  font-size: 12px;
+  flex: 1 1 0;
+  color: #000000;
+}
+
+.windows.windowBlur .title-container {
+  color: #A9A9A9;
+}
+
+.windows .controls-container {
+  height: 32px;
+}
+.windows .controls-btn-wrap {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.windows .minimizeMouseover.minimize-btn-wrap, .windows .maximizeMouseover.maximize-btn-wrap {
+  transition: background-color 0.1s ease 0s;
+  background-color: #E5E5E5;
+}
+.windows .closeMouseover.close-btn-wrap {
+  transition: background-color 0.1s ease 0s;
+  background-color: #E81123;
+}
+.windows .minimize-btn-wrap.minimizeMousedown, .windows .maximize-btn-wrap.maximizeMousedown {
+  background-color: #CCCCCC;
+}
+.windows .close-btn-wrap.closeMousedown {
+  background-color: #F1707A;
+}
+
+
+.mac.title-bar-container {
+  box-sizing: border-box;
   min-height: 22px;
   background-image: -webkit-linear-gradient(top, #EDEDED 0px, #EDEDED 1px, #E7E7E7 2px, #D1D1D1 100%);
   border-bottom: 1px solid #AFAFAF;
@@ -15,9 +81,7 @@
   border-top-right-radius: 5px;
 }
 
-.title-wrap {
-  user-select: none;
-  cursor: default;
+.mac .title-container {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0;
@@ -32,17 +96,11 @@
   padding-left: 15px;
 }
 
-.controls-wrap {
-  user-select: none;
-  cursor: default;
-  display: flex;
+.mac .controls-container {
   width: 61px;
 }
 
-.controls-btn-wrap {
-  user-select: none;
-  -webkit-app-region: no-drag;
-  cursor: default;
+.mac .controls-btn-wrap {
   box-sizing: border-box;
   width: 12px;
   height: 12px;
@@ -52,56 +110,58 @@
   margin-top: 1px;
   margin-left: 4px;
   margin-right: 4px;
-  line-height: 0;
 }
 
-.mouseover .close-btn-wrap, .close-btn-wrap {
+.mac.mouseover .close-btn-wrap, .mac .close-btn-wrap {
   background-color: #FF5F57;
   border-color: #E2463F;
 }
 
-.mouseover .minimize-btn-wrap, .minimize-btn-wrap {
+.mac.mouseover .minimize-btn-wrap, .mac .minimize-btn-wrap {
   background-color: #FFBD2E;
   border-color: #E1A116;
 }
 
-.mouseover .maximize-btn-wrap, .maximize-btn-wrap {
+.mac.mouseover .maximize-btn-wrap, .mac .maximize-btn-wrap {
   background-color: #28C940;
   border-color: #12AC28;
 }
 
-.closeMousedown.close-btn-wrap {
+.mac .closeMousedown.close-btn-wrap {
   background-color: #BF4943 !important;
   border-color: #AD3934 !important;
 }
 
-.minimizeMousedown.minimize-btn-wrap {
+.mac .minimizeMousedown.minimize-btn-wrap {
   background-color: #BF9123 !important;
   border-color: #AD7D15 !important;
 }
 
-.maximizeMousedown.maximize-btn-wrap {
+.mac .maximizeMousedown.maximize-btn-wrap {
   background-color: #1F9A31 !important;
   border-color: #128622 !important;
 }
-.windowBlur a {
+
+.mac.windowBlur a {
   background-color: #DDDDDD;
   border-color: #D0D0D0;
 }
-.windowBlur .title-wrap {
+
+.mac.windowBlur .title-bar-container {
   color: #D3D3D3;
 }
-.windowBlur.container {
+
+.mac.windowBlur.title-bar-container {
   background-image: -webkit-linear-gradient(top, #FAFAFA 0px, #F6F6F6 2px, #F6F6F6 100%);
   border-bottom: 1px solid #D1D1D1;
 }
 
-svg {
+.mac svg {
   width: 10px;
   height: 10px;
   opacity: 0;
 }
 
-.mouseover svg {
+.mac.mouseover svg {
   opacity: 1 !important;
 }

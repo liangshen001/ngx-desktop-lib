@@ -1,0 +1,20 @@
+<div class="window-container"
+     [class]="os"
+     (ngxDesktopWindowBlur)="windowBlur = $event"
+     [class.windowBlur]="windowBlur"
+     [style.background]="background | styleValue : os === 'mac' ? '#ECECEC' : '#FFFFFF'"
+     [style.height]="height | styleValue : '100vh'"
+     [style.width]="width | styleValue : '100vw'"
+     [ngxDesktopHorizontalAlignment]="horizontalAlignment"
+     [ngxDesktopVerticalAlignment]="verticalAlignment"
+     [style.borderColor]="os === 'windows' ? (windowBlur ? '#AAAAAA' : (color | styleValue: '#0063AE')) : ''">
+  <ng-content select="ngx-desktop-title-bar"></ng-content>
+  <div class="window-content-container"
+       [style.padding]="padding | styleValue : '24px 20px 20px'"
+       [style.paddingTop]="paddingTop | styleValue"
+       [style.paddingBottom]="paddingBottom | styleValue"
+       [style.paddingLeft]="paddingLeft | styleValue"
+       [style.paddingRight]="paddingRight | styleValue">
+    <ng-content></ng-content>
+  </div>
+</div>

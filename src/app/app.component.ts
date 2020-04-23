@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   a;
   title = 'ngx-desktop-lib';
+  selectedIndex = 0;
   aa() {
     console.log(this.a);
   }

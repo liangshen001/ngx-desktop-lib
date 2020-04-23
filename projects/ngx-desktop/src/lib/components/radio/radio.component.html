@@ -3,30 +3,30 @@
        [class]="os"
        (ngxDesktopWindowBlur)="windowBlur = $event"
        [class.blur]="windowBlur"
-       [class.checked]="model === value"
+       [class.checked]="checked"
        [class.disabled]="disabled">
     <label data-radium="true">
       <div data-radium="true" class="radio-input-wrap">
         <input type="radio"
                [attr.name]="name"
-               [(ngModel)]="model"
                [value]="value"
                [disabled]="disabled"
-               (ngModelChange)="changeValue($event)"
+               [checked]="model === value"
+               (change)="changeValue(value)" #inputElement
                data-radium="true">
-        <div data-radium="true" *ngIf="os === 'windows' && model === value" class="windows-radio-style"></div>
+        <div data-radium="true" *ngIf="os === 'windows' && checked" class="windows-radio-style"></div>
         <div data-radium="true" *ngIf="os === 'mac'"
              style="position: absolute; top: 7px; left: 5px; width: 6px; height: 6px; opacity: 1; transform: scale(1); transition: opacity 0s ease 0s, transform 0.2s ease 0s;">
           <svg viewBox="0 0 285 285" data-radium="true"
                style="z-index: 2; position: absolute; top: 0; left: 0; height: 6px;">
             <circle
-              [attr.fill]="disabled ? '#8d8d8d' : (model === value ? (windowBlur ? '#404040' : '#FFFFFF') : '#FFFFFF')"
+              [attr.fill]="disabled ? '#8d8d8d' : (checked ? (windowBlur ? '#404040' : '#FFFFFF') : '#FFFFFF')"
               cx="142.5" cy="142.5" r="142.5"></circle>
           </svg>
           <svg viewBox="0 0 285 285" data-radium="true"
                style="z-index: 1; position: absolute; top: 1.5px; left: 0; opacity: 0.37; height: 6px; filter: blur(0.5px);">
             <circle
-              [attr.fill]="disabled ? '#ededed' : (model === value ? (windowBlur ? '#FFFFFF' : '#0050a5') : '#FFFFFF')"
+              [attr.fill]="disabled ? '#ededed' : (checked ? (windowBlur ? '#FFFFFF' : '#0050a5') : '#FFFFFF')"
               cx="142.5" cy="142.5" r="142.5"></circle>
           </svg>
         </div>

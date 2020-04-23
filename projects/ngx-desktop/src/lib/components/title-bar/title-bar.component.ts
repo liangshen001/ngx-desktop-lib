@@ -37,8 +37,6 @@ export class TitleBarComponent implements OnInit {
   @Input()
   controls: boolean = false;
   @Input()
-  inset: boolean = false;
-  @Input()
   isFullscreen: boolean = false;
   @Input()
   transparent: boolean = false;
@@ -56,6 +54,9 @@ export class TitleBarComponent implements OnInit {
   closeMousedown: boolean;
   minimizeMousedown: boolean;
   maximizeMousedown: boolean;
+  minimizeMouseover: boolean;
+  closeMouseover: boolean;
+  maximizeMouseover: boolean;
 
   @Input()
   maximized: boolean;

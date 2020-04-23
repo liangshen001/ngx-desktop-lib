@@ -1,4 +1,14 @@
-import {Component, forwardRef, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  forwardRef,
+  HostListener,
+  Inject,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
@@ -17,6 +27,9 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
 })
 export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
 
+  @ViewChild("inputElement", {static: true})
+  inputElement: ElementRef<HTMLInputElement>;
+
   windowBlur: boolean;
 
   @Input()
@@ -34,6 +47,16 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   get os() {
     return this.ngxDesktopService.getOs(this._os);
   }
+
+  @Input()
+  set checked(checked: boolean) {
+    setTimeout(() => this.inputElement.nativeElement.checked = checked);
+  }
+
+  get checked() {
+    return this.inputElement && this.inputElement.nativeElement.checked;
+  }
+  afterViewInit: boolean;
 
   constructor(private ngxDesktopService: NgxDesktopService) {
     super();

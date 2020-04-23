@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
-import {OsTypes} from "../../types/types";
+import {LayoutTypes, OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
 
 @Component({
@@ -58,6 +58,8 @@ export class ViewComponent implements OnInit {
   paddingBottom: number | string;
   @Input()
   background: string | boolean = false;
+  @Input()
+  layout: LayoutTypes = 'horizontal';
 
   constructor(private ngxDesktopService: NgxDesktopService) {
   }

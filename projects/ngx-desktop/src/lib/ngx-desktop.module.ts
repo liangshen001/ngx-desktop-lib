@@ -1,7 +1,7 @@
 import {InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
 import {NgxDesktopComponent} from './ngx-desktop.component';
 import {CheckboxComponent} from "./components/checkbox/checkbox.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ButtonComponent} from "./components/button/button.component";
 import {BoxComponent} from "./components/box/box.component";
 import {LabelComponent} from "./components/label/label.component";
@@ -34,6 +34,8 @@ import {ProgressCircleComponent} from "./components/progress-circle/progress-cir
 import {ToolbarComponent} from "./components/toolbar/toolbar.component";
 import {ToolbarNavComponent} from "./components/toolbar-nav/toolbar-nav.component";
 import {ToolbarNavItemComponent} from "./components/toolbar-nav-item/toolbar-nav-item.component";
+import {NavPaneComponent} from "./components/nav-pane/nav-pane.component";
+import {NavPaneItemComponent} from "./components/nav-pane-item/nav-pane-item.component";
 
 
 @NgModule({
@@ -69,10 +71,13 @@ import {ToolbarNavItemComponent} from "./components/toolbar-nav-item/toolbar-nav
     ToolbarComponent,
     ToolbarNavComponent,
     ToolbarNavItemComponent,
+    NavPaneComponent,
+    NavPaneItemComponent,
   ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     NgxDesktopComponent,
@@ -106,6 +111,8 @@ import {ToolbarNavItemComponent} from "./components/toolbar-nav-item/toolbar-nav
     ToolbarComponent,
     ToolbarNavComponent,
     ToolbarNavItemComponent,
+    NavPaneComponent,
+    NavPaneItemComponent,
   ]
 })
 export class NgxDesktopModule {
