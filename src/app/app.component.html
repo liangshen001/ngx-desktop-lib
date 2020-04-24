@@ -46,8 +46,8 @@
     <polygon points="12.5,0 16.4,7.8 25,9.1 18.8,15.2 20.2,23.8 12.5,19.7 4.8,23.8 6.2,15.2 0,9.1 8.6,7.8 "/>
   </svg>
 </ng-template>
-<ngx-desktop-window height="300px">
-  <ngx-desktop-title-bar>
+<ngx-desktop-window [os]="os">
+  <ngx-desktop-title-bar [os]="os">
     <ngx-desktop-toolbar>
       <ngx-desktop-toolbar-nav [(selectedIndex)]="selectedIndex">
         <ngx-desktop-toolbar-nav-item [title]="'Item 1'" [icon]="icon1"></ngx-desktop-toolbar-nav-item>
@@ -56,19 +56,19 @@
       </ngx-desktop-toolbar-nav>
     </ngx-desktop-toolbar>
   </ngx-desktop-title-bar>
-  <ngx-desktop-view *ngIf="selectedIndex === 0" layout="vertical">
-    <ngx-desktop-radio name="123" value="345" label="345" [checked]="true"></ngx-desktop-radio>
-    <ngx-desktop-radio name="123" value="123" label="123" [checked]="false"></ngx-desktop-radio>
-    {{a}}
+  <ngx-desktop-view>
+    <ngx-desktop-checkbox [os]="os" label="自动" [(ngModel)]="autoOs" (ngModelChange)="autoOsChange($event)" ngxDesktopMargin marginRight="10px"></ngx-desktop-checkbox>
+    <ngx-desktop-radio [os]="os" name="os" value="mac" label="mac" [(ngModel)]="os" [disabled]="autoOs" ngxDesktopMargin marginRight="10px"></ngx-desktop-radio>
+    <ngx-desktop-radio [os]="os" name="os" value="windows" label="windows" [(ngModel)]="os" [disabled]="autoOs" ngxDesktopMargin marginRight="10px"></ngx-desktop-radio>
   </ngx-desktop-view>
   <ngx-desktop-text *ngIf="selectedIndex === 1">Hello World1</ngx-desktop-text>
   <ngx-desktop-text *ngIf="selectedIndex === 2">Hello World2</ngx-desktop-text>
 </ngx-desktop-window>
-<ngx-desktop-window os="windows" height="300px">
-  <ngx-desktop-title-bar os="windows" [title]="123123">
-  </ngx-desktop-title-bar>
-  <ngx-desktop-view os="windows" layout="vertical">
-    <ngx-desktop-radio os="windows" name="123" value="345" label="345" [checked]="true"></ngx-desktop-radio>
-    <ngx-desktop-radio os="windows" name="123" value="123" label="123" [checked]="false"></ngx-desktop-radio>
-  </ngx-desktop-view>
-</ngx-desktop-window>
+<!--<ngx-desktop-window os="windows" height="300px">-->
+<!--  <ngx-desktop-title-bar os="windows" [title]="'123123'">-->
+<!--  </ngx-desktop-title-bar>-->
+<!--  <ngx-desktop-view os="windows" layout="vertical">-->
+<!--    <ngx-desktop-radio os="windows" name="123" value="345" label="345" [checked]="true"></ngx-desktop-radio>-->
+<!--    <ngx-desktop-radio os="windows" name="123" value="123" label="123" [checked]="false"></ngx-desktop-radio>-->
+<!--  </ngx-desktop-view>-->
+<!--</ngx-desktop-window>-->

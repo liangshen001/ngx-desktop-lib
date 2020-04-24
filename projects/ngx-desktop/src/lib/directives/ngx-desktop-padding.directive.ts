@@ -11,22 +11,22 @@ export class NgxDesktopPaddingDirective {
   set ngxDesktopPadding(height: number | string) {
     this.value = this.ngxDesktopService.getPxValue(height, '');
   }
-  private _paddingBottom: string;
+  private _paddingBottom: string = '0';
   @Input()
   set paddingBottom(paddingBottom: number | string) {
     this._paddingBottom = this.ngxDesktopService.getPxValue(paddingBottom);
   }
-  private _paddingLeft: string;
+  private _paddingLeft: string = '0';
   @Input()
   set paddingLeft(paddingLeft: number | string) {
     this._paddingLeft = this.ngxDesktopService.getPxValue(paddingLeft);
   }
-  private _paddingRight: string;
+  private _paddingRight: string = '0';
   @Input()
   set paddingRight(paddingRight: number | string) {
     this._paddingRight = this.ngxDesktopService.getPxValue(paddingRight);
   }
-  private _paddingTop: string;
+  private _paddingTop: string = '0';
   @Input()
   set paddingTop(paddingTop: number | string) {
     this._paddingTop = this.ngxDesktopService.getPxValue(paddingTop);

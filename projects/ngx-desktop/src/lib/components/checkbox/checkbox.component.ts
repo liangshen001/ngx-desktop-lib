@@ -1,4 +1,4 @@
-import {Component, forwardRef, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {Component, forwardRef, HostBinding, HostListener, Inject, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
@@ -81,5 +81,26 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
     if (this.os === 'windows' && !this.color) {
       this.color = '#0063AE';
     }
+  }
+
+  @HostBinding('class.disabled')
+  get classDisabled() {
+    return this.disabled;
+  }
+  @HostBinding('class.checked')
+  get classChecked() {
+    return this.model;
+  }
+  @HostBinding('class.blur')
+  get classBlur() {
+    return this.windowBlur;
+  }
+  @HostBinding('class.mac')
+  get classMac() {
+    return this.os === 'mac';
+  }
+  @HostBinding('class.windows')
+  get classWindows() {
+    return this.os === 'windows';
   }
 }

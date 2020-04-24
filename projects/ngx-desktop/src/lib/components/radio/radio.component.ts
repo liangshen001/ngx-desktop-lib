@@ -25,7 +25,7 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
     multi: true
   }]
 })
-export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
+export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor, AfterViewInit {
 
   @ViewChild("inputElement", {static: true})
   inputElement: ElementRef<HTMLInputElement>;
@@ -39,6 +39,9 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   @Input()
   value: string;
 
+  @Input()
+  disabled: boolean;
+
   private _os: OsTypes;
   @Input()
   set os(os: OsTypes) {
@@ -50,11 +53,16 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
 
   @Input()
   set checked(checked: boolean) {
-    setTimeout(() => this.inputElement.nativeElement.checked = checked);
+      if (checked) {
+        this.model = this.value;
+      }
+      this.inputElement.nativeElement.checked = checked;
   }
 
   get checked() {
-    return this.inputElement && this.inputElement.nativeElement.checked;
+  // || this.afterViewInit && this.inputElement && this.inputElement.nativeElement.checked
+    console.log(this.model);
+    return this.model === this.value || this.inputElement.nativeElement.checked;
   }
   afterViewInit: boolean;
 
@@ -63,5 +71,9 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.afterViewInit = true);
   }
 }

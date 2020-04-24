@@ -11,22 +11,22 @@ export class NgxDesktopMarginDirective {
   set ngxDesktopMargin(height: number | string) {
     this.value = this.ngxDesktopService.getPxValue(height, '');
   }
-  private _marginBottom: string;
+  private _marginBottom: string = '0';
   @Input()
   set marginBottom(marginBottom: number | string) {
     this._marginBottom = this.ngxDesktopService.getPxValue(marginBottom);
   }
-  private _marginLeft: string;
+  private _marginLeft: string = '0';
   @Input()
   set marginLeft(marginLeft: number | string) {
     this._marginLeft = this.ngxDesktopService.getPxValue(marginLeft);
   }
-  private _marginRight: string;
+  private _marginRight: string = '0';
   @Input()
   set marginRight(marginRight: number | string) {
     this._marginRight = this.ngxDesktopService.getPxValue(marginRight);
   }
-  private _marginTop: string;
+  private _marginTop: string = '0';
   @Input()
   set marginTop(marginTop: number | string) {
     this._marginTop = this.ngxDesktopService.getPxValue(marginTop);

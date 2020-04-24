@@ -15,7 +15,7 @@ input {
 }
 
 /************************/
-.windows.checkbox-wrap {
+.windows .checkbox-wrap {
   align-items: center;
   margin-bottom: 22px;
 }

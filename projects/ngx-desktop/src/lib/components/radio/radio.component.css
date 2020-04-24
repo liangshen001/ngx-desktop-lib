@@ -67,6 +67,13 @@ input {
 .windows.checked input {
   border-color: #0063AE;
 }
+/**disabled*/
+.windows.disabled input  {
+  border-color: #999999;
+}
+.windows.disabled.checked .windows-radio-style {
+  background: #999999;
+}
 
 /***************mac***************/
 .mac .radio-input-wrap {
