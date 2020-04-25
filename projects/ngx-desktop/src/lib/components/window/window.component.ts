@@ -16,13 +16,14 @@ import {HorizontalAlignmentTypes} from "../../directives/ngx-desktop-horizontal-
 import {OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
 
+
+
 @Component({
   selector: 'ngx-desktop-window',
   templateUrl: './window.component.html',
   styleUrls: ['./window.component.css']
 })
 export class WindowComponent implements OnInit {
-
   private _os: OsTypes;
   @Input()
   set os(os: OsTypes) {

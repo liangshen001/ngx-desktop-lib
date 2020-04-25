@@ -32,8 +32,11 @@ input {
   user-select: none;
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
-  margin-top: 1px;
+  margin-top: 3px;
   color: #000000;
+}
+.windows.disabled .title {
+  color: #BBBBBB;
 }
 /*.windows :hover {*/
 /*  border-color: #000000;*/
@@ -60,7 +63,7 @@ input {
 }
 
 .mac.blur.checked input {
-  border-color: rgb(184, 184, 184);
+  border-color: #B8B8B8;
   background-color: rgb(255, 255, 255);
   transition: none 0s ease 0s;
 }
@@ -104,6 +107,7 @@ input {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   color: rgb(0, 0, 0);
+  line-height: 14px;
 }
 
 .mac .svg1 {

@@ -58,8 +58,10 @@
   </ngx-desktop-title-bar>
   <ngx-desktop-view>
     <ngx-desktop-checkbox [os]="os" label="自动" [(ngModel)]="autoOs" (ngModelChange)="autoOsChange($event)" ngxDesktopMargin marginRight="10px"></ngx-desktop-checkbox>
+    <ngx-desktop-checkbox [os]="os" label="test" [disabled]="true" [checked]="true" ngxDesktopMargin marginRight="10px"></ngx-desktop-checkbox>
     <ngx-desktop-radio [os]="os" name="os" value="mac" label="mac" [(ngModel)]="os" [disabled]="autoOs" ngxDesktopMargin marginRight="10px"></ngx-desktop-radio>
     <ngx-desktop-radio [os]="os" name="os" value="windows" label="windows" [(ngModel)]="os" [disabled]="autoOs" ngxDesktopMargin marginRight="10px"></ngx-desktop-radio>
+    <ngx-desktop-button [os]="os" (onClick)="a()">12</ngx-desktop-button>
   </ngx-desktop-view>
   <ngx-desktop-text *ngIf="selectedIndex === 1">Hello World1</ngx-desktop-text>
   <ngx-desktop-text *ngIf="selectedIndex === 2">Hello World2</ngx-desktop-text>

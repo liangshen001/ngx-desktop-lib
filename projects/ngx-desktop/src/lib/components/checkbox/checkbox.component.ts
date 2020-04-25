@@ -1,10 +1,22 @@
-import {Component, forwardRef, HostBinding, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  HostBinding,
+  HostListener,
+  Inject,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
 import {ColorUtils} from "../../utils/color.utils";
 import {MacColor, WindowsColor} from "../button/button.component";
 import {NgxDesktopService} from "../../ngx-desktop.service";
+import {EventEmitter} from "events";
+import {noop} from "rxjs";
 
 @Component({
   selector: 'ngx-desktop-checkbox',
@@ -16,11 +28,20 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
     multi: true
   }]
 })
-export class CheckboxComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
+export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   windowBlur: boolean;
   mouseover: boolean;
   mousedown: boolean;
+
+  @Output()
+  onChange = new EventEmitter();
+
+  @Input()
+  checked: boolean;
+
+  @Input()
+  disabled: boolean;
 
   private _os: OsTypes;
   @Input()
@@ -55,26 +76,32 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
   get style() {
     if (this.os === 'windows') {
       return {
-        ...this.model ? {
-          'border-color': this.color,
-          'background-color': this.color
+        ...this.disabled ? {
+          'border-color': '#B8B8B8',
         } : {
-          'border-color': 'rgba(0, 0, 0, 0.8)'
+          ...this.checked ? {
+            'border-color': this.color,
+            'background-color': this.color
+          } : {
+            'border-color': 'rgba(0, 0, 0, 0.8)'
+          },
+          ...this.mouseover ? {
+            'border-color': '#000000'
+          } : {},
+          ...this.mousedown ? {
+            'border-color': 'rgba(0, 0, 0, 0)',
+            'background-color': 'rgba(0, 0, 0, 0.57)'
+          } : {}
         },
-        ...this.mouseover ? {
-          'border-color': '#000000'
-        } : {},
-        ...this.mousedown ? {
-          'border-color': 'rgba(0, 0, 0, 0)',
-          'background-color': 'rgba(0, 0, 0, 0.57)'
-        } : {},
       };
     }
     return {};
   }
+  private onTouchedCallback: () => void = noop;
+  private onChangeCallback: (_: any) => void = noop;
 
-  constructor(private ngxDesktopService: NgxDesktopService) {
-    super();
+  constructor(private ngxDesktopService: NgxDesktopService,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -83,24 +110,25 @@ export class CheckboxComponent extends ControlValueAccessorAbstractComponent imp
     }
   }
 
-  @HostBinding('class.disabled')
-  get classDisabled() {
-    return this.disabled;
+  registerOnChange(fn: any): void {
+    this.onChangeCallback = fn;
   }
-  @HostBinding('class.checked')
-  get classChecked() {
-    return this.model;
+
+  registerOnTouched(fn: any): void {
+    this.onTouchedCallback = fn;
   }
-  @HostBinding('class.blur')
-  get classBlur() {
-    return this.windowBlur;
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
-  @HostBinding('class.mac')
-  get classMac() {
-    return this.os === 'mac';
+
+  changeValue() {
+    this.checked = !this.checked;
+    this.onChangeCallback(this.checked);
   }
-  @HostBinding('class.windows')
-  get classWindows() {
-    return this.os === 'windows';
+
+  writeValue(obj: any): void {
+    this.checked = obj;
+    this.changeDetectorRef.markForCheck();
   }
 }

@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
@@ -25,10 +25,16 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
     multi: true
   }]
 })
-export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor, AfterViewInit {
+export class RadioComponent extends ControlValueAccessorAbstractComponent implements OnInit, ControlValueAccessor {
 
-  @ViewChild("inputElement", {static: true})
-  inputElement: ElementRef<HTMLInputElement>;
+  private _os: OsTypes;
+  @Input()
+  set os(os: OsTypes) {
+    this._os = os;
+  }
+  get os() {
+    return this.ngxDesktopService.getOs(this._os);
+  }
 
   windowBlur: boolean;
 
@@ -42,38 +48,43 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   @Input()
   disabled: boolean;
 
-  private _os: OsTypes;
-  @Input()
-  set os(os: OsTypes) {
-    this._os = os;
-  }
-  get os() {
-    return this.ngxDesktopService.getOs(this._os);
-  }
+  @ViewChild("inputElement", {static: true})
+  inputElement: ElementRef<HTMLInputElement>;
 
   @Input()
-  set checked(checked: boolean) {
-      if (checked) {
-        this.model = this.value;
-      }
-      this.inputElement.nativeElement.checked = checked;
-  }
+  checked: boolean;
 
-  get checked() {
-  // || this.afterViewInit && this.inputElement && this.inputElement.nativeElement.checked
-    console.log(this.model);
-    return this.model === this.value || this.inputElement.nativeElement.checked;
-  }
-  afterViewInit: boolean;
+  // @Input()
+  // set checked(checked: boolean) {
+  //     if (checked) {
+  //       this.model = this.value;
+  //     }
+  //     this.inputElement.nativeElement.checked = checked;
+  // }
+  //
+  // get checked() {
+  // // || this.afterViewInit && this.inputElement && this.inputElement.nativeElement.checked
+  //   console.log(this.model);
+  //   return this.model === this.value || this.inputElement.nativeElement.checked;
+  // }
+  // afterViewInit: boolean;
+  //
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => this.afterViewInit = true);
+  // }
 
-  constructor(private ngxDesktopService: NgxDesktopService) {
+  constructor(private ngxDesktopService: NgxDesktopService,
+              private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => this.afterViewInit = true);
+
+  writeValue(obj: any): void {
+    this.model = obj;
+    this.checked = this.value === obj;
+    this.changeDetectorRef.markForCheck();
   }
 }

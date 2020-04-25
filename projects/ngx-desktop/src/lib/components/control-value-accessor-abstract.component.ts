@@ -25,7 +25,7 @@ export abstract class ControlValueAccessorAbstractComponent implements ControlVa
   }
 
   changeValue($event) {
-    this.onChangeCallback($event);
+    setTimeout(() => this.onChangeCallback($event));
   }
 
 }

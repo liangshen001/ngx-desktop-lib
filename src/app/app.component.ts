@@ -26,4 +26,9 @@ export class AppComponent {
   click() {
     this.os = 'mac';
   }
+
+  a() {
+    this.os = 'mac';
+    console.log(this.os);
+  }
 }
