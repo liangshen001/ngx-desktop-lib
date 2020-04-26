@@ -32,7 +32,7 @@ input {
   user-select: none;
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
-  margin-top: 3px;
+  margin-top: 1px;
   color: #000000;
 }
 .windows.disabled .title {
@@ -91,7 +91,7 @@ input {
 
 .mac .checkbox-style {
   position: absolute;
-  top: 4px;
+  top: 6px;
   left: 4px;
   width: 8px;
   height: 8px;
@@ -107,7 +107,6 @@ input {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   color: rgb(0, 0, 0);
-  line-height: 14px;
 }
 
 .mac .svg1 {

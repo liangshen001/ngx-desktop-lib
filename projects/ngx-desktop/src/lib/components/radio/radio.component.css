@@ -8,6 +8,7 @@
 
 .radio-input-wrap {
   position: relative;
+  padding-top: 2px;
 }
 
 label {
@@ -33,7 +34,7 @@ input {
 /****************windows*****************/
 .windows-radio-style {
   position: absolute;
-  top: 5px;
+  top: 7px;
   left: 5px;
   width: 10px;
   height: 10px;
@@ -116,7 +117,6 @@ input {
   display: inline;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
-  line-height: 14px;
 }
 .mac.disabled input {
   border-color: #B8B8B8;
