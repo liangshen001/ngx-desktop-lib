@@ -1,24 +1,48 @@
 # NgxDesktop
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+Desktop UI components (mac / windows)
 
-## Code scaffolding
+The included components are as follows
 
-Run `ng generate component component-name --project ngx-desktop` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-desktop`.
-> Note: Don't forget to add `--project ngx-desktop` or else it will be added to the default project in your `angular.json` file. 
+* button (support mac or windows)
+* checkbox (support mac or windows)
+* text (support mac or windows)
+* label (support mac or windows)
+* text-input (support mac or windows)
+* radio (support mac or windows)
+* view (support mac or windows)
+* window (support mac or windows)
+* title-bar (support mac or windows)
+* toolbar (support mac)
+* toolbar-nav / toolbar-item (support mac)
+* segmented-control / segmented-control-item (support mac)
 
-## Build
+## Install
+````
+npm i ngx-desktop -s
+````
 
-Run `ng build ngx-desktop` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+### import module
 
-After building your library with `ng build ngx-desktop`, go to the dist folder `cd dist/ngx-desktop` and run `npm publish`.
+```
+import {NgxDesktopModule} from "ngx-desktop";
 
-## Running unit tests
+@NgModule({
+  imports: [
+    NgxDesktopModule.forRoot(),
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-Run `ng test ngx-desktop` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can set the OS to use globally
 
-## Further help
+* NgxDesktopModule.forRoot('mac');
+* NgxDesktopModule.forRoot('windows');
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+default value is 'auto';
+Will automatically switch according to the current system
