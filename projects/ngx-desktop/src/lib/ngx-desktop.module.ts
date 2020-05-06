@@ -36,6 +36,9 @@ import {ToolbarNavComponent} from "./components/toolbar-nav/toolbar-nav.componen
 import {ToolbarNavItemComponent} from "./components/toolbar-nav-item/toolbar-nav-item.component";
 import {NavPaneComponent} from "./components/nav-pane/nav-pane.component";
 import {NavPaneItemComponent} from "./components/nav-pane-item/nav-pane-item.component";
+import {SearchFieldComponent} from "./components/search-field/search-field.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxDesktopLayoutDirective} from "./directives/ngx-desktop-layout.directive";
 
 
 @NgModule({
@@ -73,10 +76,13 @@ import {NavPaneItemComponent} from "./components/nav-pane-item/nav-pane-item.com
     ToolbarNavItemComponent,
     NavPaneComponent,
     NavPaneItemComponent,
+    SearchFieldComponent,
+    NgxDesktopLayoutDirective,
   ],
   imports: [
     FormsModule,
     CommonModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -113,6 +119,8 @@ import {NavPaneItemComponent} from "./components/nav-pane-item/nav-pane-item.com
     ToolbarNavItemComponent,
     NavPaneComponent,
     NavPaneItemComponent,
+    SearchFieldComponent,
+    NgxDesktopLayoutDirective,
   ]
 })
 export class NgxDesktopModule {

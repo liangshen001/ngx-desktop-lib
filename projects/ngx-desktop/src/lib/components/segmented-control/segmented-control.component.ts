@@ -28,9 +28,9 @@ export class SegmentedControlComponent extends ControlValueAccessorAbstractCompo
   @ContentChildren(SegmentedControlItemComponent)
   segmentedList: QueryList<SegmentedControlItemComponent>;
   @Input()
-  height: string | number;
+  height: string | number = '100%';
   @Input()
-  width: string | number;
+  width: string | number = '100%';
   @Input()
   backgroundColor: string = 'rgba(0, 0, 0, 0.04)';
   @Input()
@@ -61,6 +61,9 @@ export class SegmentedControlComponent extends ControlValueAccessorAbstractCompo
   }
 
   ngOnInit(): void {
+    if (this.model === undefined) {
+      setTimeout(() => this.selectTab(0));
+    }
   }
 
   writeValue(obj: any): void {

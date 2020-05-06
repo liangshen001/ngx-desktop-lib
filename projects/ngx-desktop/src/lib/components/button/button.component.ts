@@ -117,5 +117,8 @@ export class ButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.os === 'windows' && !this.color) {
+      this.color = '#cccccc';
+    }
   }
 }

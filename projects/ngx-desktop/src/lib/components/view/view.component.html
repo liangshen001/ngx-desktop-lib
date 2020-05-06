@@ -11,9 +11,7 @@
      [style.paddingBottom]="paddingBottom | styleValue"
      [style.paddingLeft]="paddingLeft | styleValue"
      [style.paddingRight]="paddingRight | styleValue"
-     [style.height]="height | styleValue"
-     [style.width]="width | styleValue"
-     [style.flexDirection]="layout === 'horizontal' ? 'row' : 'column'"
-     [style.background]="background | styleValue : os === 'mac' ? '' : '#0063AE'">
+     [ngxDesktopLayout]="layout"
+     [style.background]="background | styleValue : (os === 'windows' && '#0063AE')">
   <ng-content></ng-content>
 </div>

@@ -18,7 +18,7 @@ input {
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
   display: flex;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
 }
 
 .windows input {
@@ -81,7 +81,7 @@ input {
   display: block;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
-  margin: 0 0 3px;
+  /*margin: 0 0 3px;*/
 }
 
 .mac .border-div {

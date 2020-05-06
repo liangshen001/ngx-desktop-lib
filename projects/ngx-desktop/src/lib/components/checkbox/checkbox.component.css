@@ -26,6 +26,7 @@ input {
   color: #FFFFFF;
   vertical-align: bottom;
   margin-right: 6px;
+  margin-top: 0;
 }
 
 .windows .title {
@@ -49,6 +50,7 @@ input {
 /*************************/
 .mac.checkbox-wrap {
   height: 20px;
+  margin-right: 1px;
 }
 
 .mac input {

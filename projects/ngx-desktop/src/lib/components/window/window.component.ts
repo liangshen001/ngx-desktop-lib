@@ -13,7 +13,7 @@ import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-a
 import {StyleValueTypes} from "../../pipes/style-value.pipe";
 import {VerticalAlignmentTypes} from "../../directives/ngx-desktop-vertical-alignment.directive";
 import {HorizontalAlignmentTypes} from "../../directives/ngx-desktop-horizontal-alignment.directive";
-import {OsTypes} from "../../types/types";
+import {LayoutTypes, OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
 
 
@@ -45,11 +45,11 @@ export class WindowComponent implements OnInit {
   @Input()
   width: StyleValueTypes;
   @Input()
-  verticalAlignment: VerticalAlignmentTypes = 'center';
+  verticalAlignment: VerticalAlignmentTypes = 'top';
   @Input()
-  horizontalAlignment: HorizontalAlignmentTypes = 'center';
+  horizontalAlignment: HorizontalAlignmentTypes = 'left';
   @Input()
-  padding: number | string;
+  padding: number | string = '24px 20px 20px';
   @Input()
   paddingTop: number | string;
   @Input()
@@ -58,6 +58,8 @@ export class WindowComponent implements OnInit {
   paddingRight: number | string;
   @Input()
   paddingBottom: number | string;
+  @Input()
+  layout: LayoutTypes = 'horizontal';
 
   windowBlur: boolean;
 

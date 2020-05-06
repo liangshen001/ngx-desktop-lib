@@ -17,11 +17,24 @@ import {NgxDesktopService} from "../../ngx-desktop.service";
 import {StyleValueTypes} from "../../pipes/style-value.pipe";
 import {NavPaneItemComponent} from "../nav-pane-item/nav-pane-item.component";
 import {ToolbarNavItemComponent} from "../toolbar-nav-item/toolbar-nav-item.component";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'ngx-desktop-nav-pane',
   templateUrl: './nav-pane.component.html',
-  styleUrls: ['./nav-pane.component.css']
+  styleUrls: ['./nav-pane.component.css'],
+  animations: [
+    trigger('changePane', [
+      state('initial', style({
+        transform: 'translateY(1)',
+        opacity: 0
+      })),
+      state('final', style({
+        transform: 'translateY(0)',
+        opacity: 0
+      })),
+      transition('initial=>final', animate(1000))
+    ])]
 })
 export class NavPaneComponent implements OnInit {
 
@@ -45,9 +58,15 @@ export class NavPaneComponent implements OnInit {
   @ContentChildren(NavPaneItemComponent)
   navPaneItems: QueryList<NavPaneItemComponent>;
 
+  changePaneState = 'initial';
+
   constructor(private ngxDesktopService: NgxDesktopService) {
   }
 
   ngOnInit(): void {
+  }
+
+  a() {
+    this.changePaneState = 'final';
   }
 }

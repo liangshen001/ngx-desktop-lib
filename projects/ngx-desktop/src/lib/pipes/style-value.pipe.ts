@@ -1,9 +1,12 @@
-import {Pipe, PipeTransform} from "@angular/core";
+import {Injectable, Pipe, PipeTransform} from "@angular/core";
 import {NgxDesktopService} from "../ngx-desktop.service";
 
 @Pipe({
   name: 'styleValue',
   pure: true
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class StyleValuePipe implements PipeTransform {
 

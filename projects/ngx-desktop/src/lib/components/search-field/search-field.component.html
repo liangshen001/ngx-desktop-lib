@@ -1,0 +1,37 @@
+<div style="position: relative;"
+     [style.margin]="margin | styleValue"
+     [style.marginBottom]="marginBottom | styleValue"
+     [style.marginLeft]="marginLeft | styleValue"
+     [style.marginRight]="marginRight | styleValue"
+     [style.marginTop]="marginTop | styleValue"
+     [style.width]="width | styleValue">
+  <div data-radium="true" style="position: relative; z-index: 2;">
+    <div data-radium="true" style="position: relative;">
+      <div data-radium="true">
+      </div>
+      <div data-radium="true" class="icon-wrap">
+        <div data-radium="true" style="display: flex; align-items: center; padding-top: 2px;">
+          <div data-radium="true" style="margin-left: 6px; margin-right: 6px; padding-top: 2px;">
+            <ng-container *ngIf="icon">
+              <ng-template [ngTemplateOutlet]="icon"></ng-template>
+            </ng-container>
+            <svg x="0px" y="0px" width="12px" height="12px" viewBox="0 0 12 12" data-radium="true" *ngIf="!icon">
+              <path fill="none" stroke="#686868" stroke-width="1.1" stroke-miterlimit="10"
+                    d="M4.5,0.5c2.3,0,3.9,1.1,4.3,4.1C8.5,7.4,7.6,8.3,4.5,8.7c-2.8-0.3-4-2-4-4.3C0.5,1.6,2.6,0.5,4.5,0.5z"></path>
+              <line fill="none" stroke="#686868" stroke-width="1.1" stroke-miterlimit="10" x1="7.9" y1="7.9" x2="11.1"
+                    y2="11.1"></line>
+            </svg>
+          </div>
+          <span class="placeholder">{{placeholder}}</span>
+        </div>
+      </div>
+      <input type="text" data-radium="true"
+             [(ngModel)]="value"
+             (focus)="focus = true;"
+             (blur)="focus = false;"
+             (change)="onChange.emit($event)"
+             (keydown)="onKeydown.emit($event)"
+             (keydown.enter)="onEnter.emit($event)">
+    </div>
+  </div>
+</div>

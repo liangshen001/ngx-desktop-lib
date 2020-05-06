@@ -14,6 +14,8 @@ import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-a
 import {OS_TOKEN, OsTypes} from "../../types/types";
 import {OsUtils} from "../../utils/os.utils";
 import {NgxDesktopService} from "../../ngx-desktop.service";
+import {MacColor, WindowsColor} from "../button/button.component";
+import {ColorUtils} from "../../utils/color.utils";
 
 @Component({
   selector: 'ngx-desktop-radio',
@@ -36,6 +38,9 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
     return this.ngxDesktopService.getOs(this._os);
   }
 
+  @Input()
+  color: WindowsColor = '#0063AE';
+
   windowBlur: boolean;
 
   @Input()
@@ -54,24 +59,11 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   @Input()
   checked: boolean;
 
-  // @Input()
-  // set checked(checked: boolean) {
-  //     if (checked) {
-  //       this.model = this.value;
-  //     }
-  //     this.inputElement.nativeElement.checked = checked;
-  // }
-  //
-  // get checked() {
-  // // || this.afterViewInit && this.inputElement && this.inputElement.nativeElement.checked
-  //   console.log(this.model);
-  //   return this.model === this.value || this.inputElement.nativeElement.checked;
-  // }
-  // afterViewInit: boolean;
-  //
-  // ngAfterViewInit(): void {
-  //   setTimeout(() => this.afterViewInit = true);
-  // }
+  get borderColor() {
+    return this.os === 'mac' ?
+      (this.windowBlur ? '#B8B8B8' : (this.checked ? '#2C91FC' : '#B8B8B8')) :
+      this.disabled ? '#999999' : (this.checked ? this.color : '#333333');
+  }
 
   constructor(private ngxDesktopService: NgxDesktopService,
               private changeDetectorRef: ChangeDetectorRef) {

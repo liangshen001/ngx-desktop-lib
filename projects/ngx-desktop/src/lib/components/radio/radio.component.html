@@ -1,13 +1,15 @@
   <div data-radium="true"
-       class="radio-wrap"
+       style="display: inline-block"
        [class]="os"
        (ngxDesktopWindowBlur)="windowBlur = $event"
        [class.blur]="windowBlur"
        [class.checked]="checked"
        [class.disabled]="disabled">
-    <label data-radium="true">
+    <label data-radium="true"
+           class="radio-wrap">
       <div data-radium="true" class="radio-input-wrap">
         <input type="radio"
+               [style.borderColor]="borderColor"
                [attr.name]="name"
                [value]="value"
                [disabled]="disabled"
@@ -19,15 +21,13 @@
         <div data-radium="true" *ngIf="os === 'mac'"
              style="position: absolute; top: 7px; left: 5px; width: 6px; height: 6px; opacity: 1; transform: scale(1); transition: opacity 0s ease 0s, transform 0.2s ease 0s;">
           <svg viewBox="0 0 285 285" data-radium="true"
-               style="z-index: 2; position: absolute; top: 0; left: 0; height: 6px;">
-            <circle
-              [attr.fill]="disabled ? (checked ? ('#919191') : '#FFFFFF') : (checked ? (windowBlur ? '#404040' : '#FFFFFF') : '#FFFFFF')"
+               style="z-index: 2; position: absolute; top: 0; left: 1px; height: 6px;">
+            <circle [attr.fill]="disabled ? (checked ? ('#919191') : '#FFFFFF') : (checked ? (windowBlur ? '#404040' : '#FFFFFF') : '#FFFFFF')"
               cx="142.5" cy="142.5" r="142.5"></circle>
           </svg>
           <svg viewBox="0 0 285 285" data-radium="true"
-               style="z-index: 1; position: absolute; top: 1.5px; left: 0; opacity: 0.37; height: 6px; filter: blur(0.5px);">
-            <circle
-              [attr.fill]="disabled ? (checked ? '#ededed' : '#ffffff') : (checked ? (windowBlur ? '#FFFFFF' : '#0050a5') : '#FFFFFF')"
+               style="z-index: 1; position: absolute; top: 1.5px; left: 1px; opacity: 0.37; height: 6px; filter: blur(0.5px);">
+            <circle [attr.fill]="disabled ? (checked ? '#ededed' : '#ffffff') : (checked ? (windowBlur ? '#FFFFFF' : '#0050a5') : '#FFFFFF')"
               cx="142.5" cy="142.5" r="142.5"></circle>
           </svg>
         </div>

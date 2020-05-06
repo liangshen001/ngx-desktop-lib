@@ -5,16 +5,20 @@
      [style.background]="background | styleValue : os === 'mac' ? '#ECECEC' : '#FFFFFF'"
      [style.height]="height | styleValue : '100vh'"
      [style.width]="width | styleValue : '100vw'"
-     [ngxDesktopHorizontalAlignment]="horizontalAlignment"
-     [ngxDesktopVerticalAlignment]="verticalAlignment"
      [style.borderColor]="os === 'windows' ? (windowBlur ? '#AAAAAA' : (color | styleValue: '#0063AE')) : ''">
   <ng-content select="ngx-desktop-title-bar"></ng-content>
-  <div class="window-content-container"
-       [style.padding]="padding | styleValue : '24px 20px 20px'"
-       [style.paddingTop]="paddingTop | styleValue"
-       [style.paddingBottom]="paddingBottom | styleValue"
-       [style.paddingLeft]="paddingLeft | styleValue"
-       [style.paddingRight]="paddingRight | styleValue">
-    <ng-content></ng-content>
-  </div>
+    <ngx-desktop-view class="window-content-container"
+                      [os]="os"
+                      [layout]="layout"
+                      [padding]="padding"
+                      [paddingTop]="paddingTop"
+                      [paddingLeft]="paddingLeft"
+                      [paddingBottom]="paddingBottom"
+                      [paddingRight]="paddingRight"
+                      [horizontalAlignment]="horizontalAlignment"
+                      [verticalAlignment]="verticalAlignment"
+                      [height]="'100%'"
+                      [width]="'100%'">
+      <ng-content></ng-content>
+    </ngx-desktop-view>
 </div>

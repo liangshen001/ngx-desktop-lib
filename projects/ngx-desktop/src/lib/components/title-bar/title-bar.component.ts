@@ -35,7 +35,7 @@ export class TitleBarComponent implements OnInit {
   @Input()
   title: string;
   @Input()
-  controls: boolean = false;
+  controls: boolean = true;
   @Input()
   isFullscreen: boolean = false;
   @Input()

@@ -21,7 +21,7 @@ export class NgxDesktopVerticalAlignmentDirective {
     }
   }
 
-  @HostBinding('style.vertical-content')
+  @HostBinding('style.align-items')
   get style() {
     return this.value;
   }

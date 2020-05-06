@@ -1,5 +1,6 @@
 :host {
   font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
 }
 
 .tab-label-wrap {
@@ -15,10 +16,10 @@
 .tab-label-wrap div {
   user-select: none;
   cursor: default;
-  background: rgb(255, 255, 255);
-  border-top: 1px solid rgb(199, 199, 199);
-  border-bottom: 1px solid rgb(166, 166, 166);
-  border-right: 1px solid rgb(216, 216, 216);
+  background: #FFFFFF;
+  border-top: 1px solid #C7C7C7;
+  border-bottom: 1px solid #A6A6A6;
+  border-right: 1px solid #D8D8D8;
   padding: 1px 12px 2px;
   line-height: 16px;
   font-size: 13px;
@@ -27,10 +28,10 @@
 }
 
 .tab-label-wrap div.selected {
-  background: -webkit-linear-gradient(top, rgb(90, 178, 246) 0%, rgb(0, 130, 250) 100%);
+  background: -webkit-linear-gradient(top, #5AB2F6 0%, #0082FA 100%);
   border-width: 1px 0 1px 1px;
   border-style: solid;
-  border-color: rgb(48, 160, 245) rgb(0, 128, 247) rgb(0, 96, 250);
+  border-color: #30A0F5 #0080F7 #0060FA;
   color: white;
 }
 .tab-label-wrap div:first-child {
@@ -38,36 +39,38 @@
   border-style: solid;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  border-color: rgb(199, 199, 199) rgb(216, 216, 216) rgb(166, 166, 166) rgb(184, 184, 184);
+  border-color: #C7C7C7 #D8D8D8 #A6A6A6 #B8B8B8;
 }
 .tab-label-wrap div:last-child {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  border-right: 1px solid rgb(184, 184, 184);
+  border-right: 1px solid #B8B8B8;
 }
 
 .tab-label-wrap div.selected.mousedown {
-  background: -webkit-linear-gradient(top, rgb(51, 151, 249) 0%, rgb(0, 104, 223) 100%);
-  border-color: rgb(0, 147, 249) rgb(0, 97, 233) rgb(0, 64, 216);
+  background: -webkit-linear-gradient(top, #3397F9 0%, #0068DF 100%);
+  border-color: #0093F9 #0061E9 #0040D8;
 }
 
 .tab-label-wrap div.selected.blur {
-  background: rgb(229, 229, 229);
-  border-color: rgb(199, 199, 199) rgb(183, 183, 183) rgb(166, 166, 166);
-  color: rgb(0, 0, 0);
+  background: #E5E5E5;
+  border-color: #C7C7C7 #B7B7B7 #A6A6A6;
+  color: #000000;
   border-left: none;
 }
 
 .tab-label-wrap div:first-child.selected.blur {
-  border-color: rgb(199, 199, 199) rgb(183, 183, 183) rgb(183, 183, 183) rgb(166, 166, 166);
-  border-left: 1px solid rgb(183, 183, 183);
+  border-color: #C7C7C7 #B7B7B7 #B7B7B7 #A6A6A6;
+  border-left: 1px solid #B7B7B7;
 }
 
 .tab-label-wrap div.mousedown {
-  background: rgb(240, 240, 240);
+  background: #F0F0F0;
 }
 
 .content-wrap {
+  width: 100%;
+  box-sizing: border-box;
   user-select: none;
   cursor: default;
   flex: 1 1 0;

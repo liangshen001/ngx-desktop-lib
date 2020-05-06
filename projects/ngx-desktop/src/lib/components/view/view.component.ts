@@ -1,7 +1,7 @@
 import {
   Component,
   EventEmitter,
-  forwardRef,
+  forwardRef, HostBinding,
   HostListener,
   Input,
   OnInit,
@@ -12,6 +12,9 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {LayoutTypes, OsTypes} from "../../types/types";
 import {NgxDesktopService} from "../../ngx-desktop.service";
+import {StyleValuePipe} from "../../pipes/style-value.pipe";
+import {HorizontalAlignmentTypes} from "../../directives/ngx-desktop-horizontal-alignment.directive";
+import {VerticalAlignmentTypes} from "../../directives/ngx-desktop-vertical-alignment.directive";
 
 @Component({
   selector: 'ngx-desktop-view',
@@ -29,9 +32,9 @@ export class ViewComponent implements OnInit {
     return this.ngxDesktopService.getOs(this._os);
   }
   @Input()
-  horizontalAlignment: 'left' | 'center' | 'right';
+  horizontalAlignment: HorizontalAlignmentTypes;
   @Input()
-  verticalAlignment: 'top' | 'center' | 'bottom';
+  verticalAlignment: VerticalAlignmentTypes;
   @Input()
   height: string | number;
   @Input()
@@ -61,9 +64,20 @@ export class ViewComponent implements OnInit {
   @Input()
   layout: LayoutTypes = 'horizontal';
 
-  constructor(private ngxDesktopService: NgxDesktopService) {
+  constructor(private ngxDesktopService: NgxDesktopService,
+              private styleValuePipe: StyleValuePipe) {
   }
 
   ngOnInit(): void {
+  }
+
+  @HostBinding('style.width')
+  get styleWidth() {
+    return this.styleValuePipe.transform(this.width);
+  }
+
+  @HostBinding('style.height')
+  get styleHeight() {
+    return this.styleValuePipe.transform(this.height);
   }
 }

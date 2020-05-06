@@ -77,7 +77,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     if (this.os === 'windows') {
       return {
         ...this.disabled ? {
-          'border-color': '#B8B8B8',
+          'border-color': '#999999',
         } : {
           ...this.checked ? {
             'border-color': this.color,

@@ -1,36 +1,47 @@
-import {Component, forwardRef, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  HostListener,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ControlValueAccessorAbstractComponent} from "../control-value-accessor-abstract.component";
 import {OS_TOKEN, OsTypes} from "../../types/types";
-import {NgxDesktopService} from "../../ngx-desktop.service";
 import {noop} from "rxjs";
 
 @Component({
-  selector: 'ngx-desktop-text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.css'],
+  selector: 'ngx-desktop-search-field',
+  templateUrl: './search-field.component.html',
+  styleUrls: ['./search-field.component.css'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => TextInputComponent),
+    useExisting: forwardRef(() => SearchFieldComponent),
     multi: true
   }]
 })
-export class TextInputComponent implements OnInit, ControlValueAccessor {
+export class SearchFieldComponent implements OnInit, ControlValueAccessor {
 
-  private _os: OsTypes;
-  @Input()
-  set os(os: OsTypes) {
-    this._os = os;
-  }
-  get os() {
-    return this.ngxDesktopService.getOs(this._os);
-  }
   @Input()
   label: string;
   @Input()
-  placeholder: string = '';
+  placeholder: string = 'Search';
+  @Input()
+  icon: TemplateRef<SVGElement>;
   @Input()
   color: string;
+  @Output()
+  onCancel = new EventEmitter<void>();
+  @Output()
+  onChange = new EventEmitter<Event>();
+  @Output()
+  onKeydown = new EventEmitter<KeyboardEvent>();
+  @Output()
+  onEnter = new EventEmitter<KeyboardEvent>();
   @Input()
   width: string | number;
   @Input()
@@ -43,28 +54,10 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   marginTop: string | number;
   @Input()
   margin: string | number;
-  @Input()
-  disabled: boolean;
 
   focus: boolean;
-  mouseover: boolean;
 
-  get style() {
-    if (this.os === 'windows') {
-      return {
-        ...this.mouseover ? {
-          'border-color': '#646464',
-          background: 'rgba(255, 255, 255, 0.5)'
-        } : {},
-        ...this.focus ? {
-          'border-color': this.color,
-          background: '#FFFFFF'
-        } : {},
-      };
-    }
-    return {};
-  }
-
+  disabled: boolean;
   value: string;
   onTouchedCallback: () => void = noop;
   onChangeCallback: (_: any) => void = noop;
@@ -84,10 +77,9 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  constructor(private ngxDesktopService: NgxDesktopService) {
+  constructor() {
   }
 
   ngOnInit(): void {
   }
-
 }

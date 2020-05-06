@@ -8,7 +8,7 @@
     <ng-template [ngTemplateOutlet]="titleTemp"></ng-template>
   </ng-container>
   <div class="controls-container" (ngxDesktopMouseover)="mouseover = $event">
-    <ng-container *ngIf="os === 'mac'">
+    <ng-container *ngIf="os === 'mac' && controls">
       <a data-radium="true" class="close-btn-wrap controls-btn-wrap" (ngxDesktopMousedown)="closeMousedown = $event"
          [class.closeMousedown]="closeMousedown" (click)="onCloseClick.emit()">
         <svg x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" data-radium="true" class="close-svg">
@@ -41,7 +41,7 @@
         </svg>
       </a>
     </ng-container>
-    <ng-container *ngIf="os === 'windows'">
+    <ng-container *ngIf="os === 'windows' && controls">
       <a data-radium="true" class="minimize-btn-wrap controls-btn-wrap"
          (ngxDesktopMousedown)="minimizeMousedown = $event"
          [class.minimizeMousedown]="minimizeMousedown"

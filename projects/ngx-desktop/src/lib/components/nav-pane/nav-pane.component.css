@@ -1,0 +1,126 @@
+
+.nav-pane-container {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  flex: 1 1 0;
+}
+
+.nav-pane-content-container {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+:host {
+  width: 100%;
+}
+
+
+.nav-pane-label-container {
+  cursor: default;
+  user-select: none;
+  display: flex;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-direction: column;
+  overflow: hidden;
+  width: 48px;
+}
+
+.pane-label {
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.pane-label.checked {
+  background-color: rgba(204, 127, 41, 0.6);
+}
+
+.pane-label span {
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.4pt;
+  padding: 0 16px;
+  transition: transform 0.1s ease-in 0s;
+  user-select: none;
+}
+
+.pane-label span i {
+  margin-right: 8px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.title-container {
+  position: relative;
+  color: rgb(0, 0, 0);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 0px 24px;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+}
+
+.current-title {
+  opacity: 0;
+  animation: 300ms ease 0s 1 normal forwards running Title-radium-animation;
+}
+
+.last-title {
+  position: absolute;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 0px 24px;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  top: 0px;
+  left: 0px;
+}
+
+
+@keyframes span-radium-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes Title-radium-animation {
+  0% {
+    opacity: 0;
+  }
+  29% {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  30% {
+    opacity: 0.35;
+    transform: translateY(9px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
