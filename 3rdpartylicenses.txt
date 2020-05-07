@@ -91,6 +91,7 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ngx-desktop
+MIT
 
 regenerator-runtime
 MIT
