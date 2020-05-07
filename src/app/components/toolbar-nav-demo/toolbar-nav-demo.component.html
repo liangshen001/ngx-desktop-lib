@@ -1,0 +1,49 @@
+<ng-template #icon1>
+  <svg x="0px" y="0px" width="25px" height="21.7px" viewBox="0 0 25 21.7">
+    <polygon points="6.2,21.7 0,10.8 6.2,0 18.8,0 25,10.8 18.8,21.7 "/>
+  </svg>
+</ng-template>
+<ng-template #icon2>
+  <svg x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25">
+    <circle cx="12.5" cy="12.5" r="12.5"/>
+  </svg>
+</ng-template>
+<ng-template #icon3>
+  <svg x="0px" y="0px" width="25px" height="23.8px" viewBox="0 0 25 23.8">
+    <polygon points="12.5,0 16.4,7.8 25,9.1 18.8,15.2 20.2,23.8 12.5,19.7 4.8,23.8 6.2,15.2 0,9.1 8.6,7.8 "/>
+  </svg>
+</ng-template>
+
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-window [os]="os" [height]="'500px'" [width]="'100%'">
+    <ngx-desktop-title-bar [os]="os">
+      <ngx-desktop-toolbar>
+        <ngx-desktop-toolbar-nav>
+          <ngx-desktop-toolbar-nav-item [icon]="icon1" title="title1"></ngx-desktop-toolbar-nav-item>
+          <ngx-desktop-toolbar-nav-item [icon]="icon2" title="title2"></ngx-desktop-toolbar-nav-item>
+          <ngx-desktop-toolbar-nav-item [icon]="icon3" title="title3"></ngx-desktop-toolbar-nav-item>
+        </ngx-desktop-toolbar-nav>
+      </ngx-desktop-toolbar>
+    </ngx-desktop-title-bar>
+  </ngx-desktop-window>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-window [os]="'{{os}}'" [height]="'500px'" [width]="'100%'">
+    <br>&lt;ngx-desktop-title-bar [os]="'{{os}}'">
+    <br>&lt;ngx-desktop-toolbar [horizontalAlignment]="'right'">
+    <br>&lt;ngx-desktop-button [os]="'{{os}}'">button&lt;/ngx-desktop-button>
+    <br>&lt;/ngx-desktop-toolbar>
+    <br>&lt;/ngx-desktop-title-bar>
+    <br>&lt;/ngx-desktop-window>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<ngx-desktop-view>
+  <ngx-desktop-text color="red">
+    Only the MAC will show it
+  </ngx-desktop-text>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

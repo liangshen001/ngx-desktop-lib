@@ -1,0 +1,41 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-segmented-control >
+    <ngx-desktop-segmented-control-item label="text1">
+      <ngx-desktop-text [os]="os">
+        text1
+      </ngx-desktop-text>
+    </ngx-desktop-segmented-control-item>
+    <ngx-desktop-segmented-control-item label="text2">
+      <ngx-desktop-text [os]="os">
+        text2
+      </ngx-desktop-text>
+    </ngx-desktop-segmented-control-item>
+  </ngx-desktop-segmented-control>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    <br>&lt;ngx-desktop-segmented-control>
+    <br>&lt;ngx-desktop-segmented-control-item label="text1">
+    <br>&lt;ngx-desktop-text [os]="os">
+    <br>text1
+    <br>&lt;/ngx-desktop-text>
+    <br>&lt;/ngx-desktop-segmented-control-item>
+    <br>&lt;ngx-desktop-segmented-control-item label="text2">
+    <br>&lt;ngx-desktop-text [os]="os">
+    <br>&lt;text2
+    <br>&lt;/ngx-desktop-text>
+    <br>&lt;/ngx-desktop-segmented-control-item>
+    <br>&lt;/ngx-desktop-segmented-control>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<ngx-desktop-view>
+  <ngx-desktop-text color="red">
+    Only MAC style is supported
+  </ngx-desktop-text>
+</ngx-desktop-view>
+
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

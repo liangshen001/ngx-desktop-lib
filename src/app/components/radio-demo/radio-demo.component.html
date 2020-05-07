@@ -1,0 +1,24 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-radio [os]="os" label="value1" [(ngModel)]="value" value="value1"></ngx-desktop-radio>
+  <ngx-desktop-radio [os]="os" label="value2" [(ngModel)]="value" value="value2"></ngx-desktop-radio>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-radio [os]="os" label="checked" [checked]="checked" [disabled]="true"></ngx-desktop-radio>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-radio [os]="'{{os}}'" label="value1" [(ngModel)]="'{{value}}'" value="value1">&lt;/ngx-desktop-radio>
+    <br>
+    &lt;ngx-desktop-radio [os]="'{{os}}'" label="value2" [(ngModel)]="'{{value}}'" value="value2">&lt;/ngx-desktop-radio>
+    <br>
+    &lt;ngx-desktop-radio [os]="'{{os}}'" label="checked" [checked]="{{checked}}">&lt;/ngx-desktop-radio>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-checkbox [os]="os" label="checked" [(ngModel)]="checked"></ngx-desktop-checkbox>
+</ngx-desktop-view>
+
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

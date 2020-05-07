@@ -1,0 +1,17 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-window [os]="os" [height]="height" [width]="width"></ngx-desktop-window>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-window [os]="'{{os}}'" [height]="'{{height}}'" [width]="'{{width}}'">&lt;/ngx-desktop-window>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text-input [os]="os" label="Width" [(ngModel)]="width"></ngx-desktop-text-input>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text-input [os]="os" label="Height" [(ngModel)]="height"></ngx-desktop-text-input>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

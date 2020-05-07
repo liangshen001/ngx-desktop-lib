@@ -1,0 +1,15 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text [os]="os">
+    text
+  </ngx-desktop-text>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-text [os]="'{{os}}'">text&lt;/ngx-desktop-text>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"
+></app-os-switch>

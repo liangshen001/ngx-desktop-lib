@@ -1,0 +1,19 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-window [os]="os" [height]="'500px'" [width]="'100%'">
+    <ngx-desktop-title-bar [os]="os"></ngx-desktop-title-bar>
+  </ngx-desktop-window>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-window [os]="'{{os}}'" [height]="'500px'" [width]="'100%'">
+    <br>
+    &lt;ngx-desktop-title-bar [os]="'{{os}}'">
+    <br>
+    &lt;/ngx-desktop-title-bar>
+    <br>
+    &lt;/ngx-desktop-window>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

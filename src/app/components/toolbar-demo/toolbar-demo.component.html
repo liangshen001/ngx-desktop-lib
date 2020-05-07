@@ -1,0 +1,29 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-window [os]="os" [height]="'500px'" [width]="'100%'">
+    <ngx-desktop-title-bar [os]="os">
+      <ngx-desktop-toolbar [horizontalAlignment]="'right'">
+        <ngx-desktop-button [os]="os">button</ngx-desktop-button>
+      </ngx-desktop-toolbar>
+    </ngx-desktop-title-bar>
+  </ngx-desktop-window>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-window [os]="'{{os}}'" [height]="'500px'" [width]="'100%'">
+      <br>&lt;ngx-desktop-title-bar [os]="'{{os}}'">
+        <br>&lt;ngx-desktop-toolbar [horizontalAlignment]="'right'">
+          <br>&lt;ngx-desktop-button [os]="'{{os}}'">button&lt;/ngx-desktop-button>
+          <br>&lt;/ngx-desktop-toolbar>
+        <br>&lt;/ngx-desktop-title-bar>
+      <br>&lt;/ngx-desktop-window>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<ngx-desktop-view>
+  <ngx-desktop-text color="red">
+    Only the MAC will show it
+  </ngx-desktop-text>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>
