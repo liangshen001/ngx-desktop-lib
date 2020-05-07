@@ -1,0 +1,35 @@
+import { OnInit } from '@angular/core';
+import { ControlValueAccessor } from "@angular/forms";
+import { OsTypes } from "../../types/types";
+import { NgxDesktopService } from "../../ngx-desktop.service";
+import * as i0 from "@angular/core";
+export declare class TextInputComponent implements OnInit, ControlValueAccessor {
+    private ngxDesktopService;
+    private _os;
+    set os(os: OsTypes);
+    get os(): OsTypes;
+    label: string;
+    placeholder: string;
+    color: string;
+    width: string | number;
+    marginBottom: string | number;
+    marginLeft: string | number;
+    marginRight: string | number;
+    marginTop: string | number;
+    margin: string | number;
+    disabled: boolean;
+    focus: boolean;
+    mouseover: boolean;
+    get style(): {};
+    value: string;
+    onTouchedCallback: () => void;
+    onChangeCallback: (_: any) => void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    writeValue(obj: any): void;
+    setDisabledState(isDisabled: boolean): void;
+    constructor(ngxDesktopService: NgxDesktopService);
+    ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDef<TextInputComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<TextInputComponent, "ngx-desktop-text-input", never, { "os": "os"; "label": "label"; "placeholder": "placeholder"; "color": "color"; "width": "width"; "marginBottom": "marginBottom"; "marginLeft": "marginLeft"; "marginRight": "marginRight"; "marginTop": "marginTop"; "margin": "margin"; "disabled": "disabled"; }, {}, never>;
+}

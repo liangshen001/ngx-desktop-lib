@@ -1,0 +1,38 @@
+import { ChangeDetectorRef, OnInit } from '@angular/core';
+import { ControlValueAccessor } from "@angular/forms";
+import { OsTypes } from "../../types/types";
+import { MacColor, WindowsColor } from "../button/button.component";
+import { NgxDesktopService } from "../../ngx-desktop.service";
+import { EventEmitter } from "events";
+import * as i0 from "@angular/core";
+export declare class CheckboxComponent implements OnInit, ControlValueAccessor {
+    private ngxDesktopService;
+    private changeDetectorRef;
+    windowBlur: boolean;
+    mouseover: boolean;
+    mousedown: boolean;
+    onChange: EventEmitter;
+    checked: boolean;
+    disabled: boolean;
+    private _os;
+    set os(os: OsTypes);
+    get os(): OsTypes;
+    label: string;
+    private _color;
+    darkenColor: string;
+    isDarkColor: boolean;
+    set color(color: MacColor | WindowsColor);
+    get color(): MacColor | WindowsColor;
+    get style(): {};
+    private onTouchedCallback;
+    private onChangeCallback;
+    constructor(ngxDesktopService: NgxDesktopService, changeDetectorRef: ChangeDetectorRef);
+    ngOnInit(): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    setDisabledState(isDisabled: boolean): void;
+    changeValue(): void;
+    writeValue(obj: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<CheckboxComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<CheckboxComponent, "ngx-desktop-checkbox", never, { "checked": "checked"; "disabled": "disabled"; "os": "os"; "label": "label"; "color": "color"; }, { "onChange": "onChange"; }, never>;
+}

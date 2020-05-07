@@ -1,0 +1,32 @@
+import { OnInit } from '@angular/core';
+import { StyleValueTypes } from "../../pipes/style-value.pipe";
+import { VerticalAlignmentTypes } from "../../directives/ngx-desktop-vertical-alignment.directive";
+import { HorizontalAlignmentTypes } from "../../directives/ngx-desktop-horizontal-alignment.directive";
+import { LayoutTypes, OsTypes } from "../../types/types";
+import { NgxDesktopService } from "../../ngx-desktop.service";
+import * as i0 from "@angular/core";
+export declare class WindowComponent implements OnInit {
+    private ngxDesktopService;
+    private _os;
+    set os(os: OsTypes);
+    get os(): OsTypes;
+    label: string;
+    disabled: boolean;
+    background: string;
+    color: string;
+    height: StyleValueTypes;
+    width: StyleValueTypes;
+    verticalAlignment: VerticalAlignmentTypes;
+    horizontalAlignment: HorizontalAlignmentTypes;
+    padding: number | string;
+    paddingTop: number | string;
+    paddingLeft: number | string;
+    paddingRight: number | string;
+    paddingBottom: number | string;
+    layout: LayoutTypes;
+    windowBlur: boolean;
+    constructor(ngxDesktopService: NgxDesktopService);
+    ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDef<WindowComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<WindowComponent, "ngx-desktop-window", never, { "os": "os"; "label": "label"; "disabled": "disabled"; "background": "background"; "color": "color"; "height": "height"; "width": "width"; "verticalAlignment": "verticalAlignment"; "horizontalAlignment": "horizontalAlignment"; "padding": "padding"; "paddingTop": "paddingTop"; "paddingLeft": "paddingLeft"; "paddingRight": "paddingRight"; "paddingBottom": "paddingBottom"; "layout": "layout"; }, {}, never>;
+}

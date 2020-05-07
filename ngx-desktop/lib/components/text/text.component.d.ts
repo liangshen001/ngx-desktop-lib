@@ -1,0 +1,31 @@
+import { OnInit } from '@angular/core';
+import { NgxDesktopService } from "../../ngx-desktop.service";
+import { OsTypes } from "../../types/types";
+import * as i0 from "@angular/core";
+export declare class TextComponent implements OnInit {
+    private ngxDesktopService;
+    private _os;
+    set os(os: OsTypes);
+    get os(): OsTypes;
+    size: string | number;
+    color: string;
+    background: string;
+    textAlign: 'left' | 'center' | 'right';
+    height: string | number;
+    width: string | number;
+    bold: number | string | boolean;
+    margin: number | string;
+    marginTop: number | string;
+    marginLeft: number | string;
+    marginRight: number | string;
+    marginBottom: number | string;
+    padding: number | string;
+    paddingTop: number | string;
+    paddingLeft: number | string;
+    paddingRight: number | string;
+    paddingBottom: number | string;
+    constructor(ngxDesktopService: NgxDesktopService);
+    ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDef<TextComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<TextComponent, "ngx-desktop-text", never, { "os": "os"; "size": "size"; "color": "color"; "background": "background"; "textAlign": "textAlign"; "height": "height"; "width": "width"; "bold": "bold"; "margin": "margin"; "marginTop": "marginTop"; "marginLeft": "marginLeft"; "marginRight": "marginRight"; "marginBottom": "marginBottom"; "padding": "padding"; "paddingTop": "paddingTop"; "paddingLeft": "paddingLeft"; "paddingRight": "paddingRight"; "paddingBottom": "paddingBottom"; }, {}, never>;
+}
