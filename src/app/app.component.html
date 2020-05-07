@@ -68,19 +68,46 @@
   <ngx-desktop-title-bar [os]="os"></ngx-desktop-title-bar>
   <ngx-desktop-segmented-control >
     <ngx-desktop-segmented-control-item label="Text Input">
-      <app-input-demo  [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-input-demo>
+      <app-input-demo  [(os)]="os" [(autoOs)]="autoOs"></app-input-demo>
     </ngx-desktop-segmented-control-item>
 
     <ngx-desktop-segmented-control-item label="Button">
-      <app-button-demo [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-button-demo>
+      <app-button-demo [(os)]="os" [(autoOs)]="autoOs"></app-button-demo>
     </ngx-desktop-segmented-control-item>
 
     <ngx-desktop-segmented-control-item label="Progress Circle">
-      <app-progress-circle [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-progress-circle>
+      <app-progress-circle [(os)]="os" [(autoOs)]="autoOs"></app-progress-circle>
     </ngx-desktop-segmented-control-item>
 
     <ngx-desktop-segmented-control-item label="Checkbox">
-      <app-checkbox-demo [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-checkbox-demo>
+      <app-checkbox-demo [(os)]="os" [(autoOs)]="autoOs"></app-checkbox-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Radio">
+      <app-radio-demo [(os)]="os" [(autoOs)]="autoOs"></app-radio-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Window">
+      <app-window-demo [(os)]="os" [(autoOs)]="autoOs"></app-window-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Title Bar">
+      <app-title-bar [(os)]="os" [(autoOs)]="autoOs"></app-title-bar>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Toolbar">
+      <app-toolbar-demo [(os)]="os" [(autoOs)]="autoOs"></app-toolbar-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Toolbar Nav">
+      <app-toolbar-nav-demo [(os)]="os" [(autoOs)]="autoOs"></app-toolbar-nav-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Text">
+      <app-text-demo [(os)]="os" [(autoOs)]="autoOs"></app-text-demo>
+    </ngx-desktop-segmented-control-item>
+    <ngx-desktop-segmented-control-item label="Segmented Control">
+      <app-segmented-control-demo [(os)]="os" [(autoOs)]="autoOs"></app-segmented-control-demo>
     </ngx-desktop-segmented-control-item>
   </ngx-desktop-segmented-control>
 

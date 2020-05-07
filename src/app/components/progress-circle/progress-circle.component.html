@@ -1,8 +1,16 @@
 <ngx-desktop-view [os]="os">
-  <ngx-desktop-progress-circle [os]="os" [size]="size"></ngx-desktop-progress-circle>
+  <ngx-desktop-progress-circle [os]="os" [size]="size" [color]="color"></ngx-desktop-progress-circle>
 </ngx-desktop-view>
 <ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-progress-circle [os]="'{{os}}'" [size]="'{{size}}'" [color]="'{{color}}'">&lt;/ngx-desktop-progress-circle>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
   <ngx-desktop-text-input [os]="os" label="Size" [(ngModel)]="size"></ngx-desktop-text-input>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text-input [os]="os" label="Color" [(ngModel)]="color"></ngx-desktop-text-input>
 </ngx-desktop-view>
 <app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
                [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

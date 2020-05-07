@@ -24,7 +24,6 @@ export class ProgressCircleComponent implements OnInit, AfterViewInit {
   set os(os: OsTypes) {
     this._os = os;
     setTimeout(() => this.init());
-    this.initColor();
   }
   get os() {
     return this.ngxDesktopService.getOs(this._os);
@@ -32,8 +31,21 @@ export class ProgressCircleComponent implements OnInit, AfterViewInit {
 
   @Input()
   size: string | number;
+  private _color: string;
+  private _colorInit: boolean;
   @Input()
-  color: string;
+  set color(color: string) {
+    if (color) {
+      this._colorInit = true;
+      this._color = color;
+    } else {
+      this._colorInit = false;
+      this.initColor();
+    }
+  }
+  get color() {
+    return this._color;
+  }
   @ViewChildren("circle")
   circles: QueryList<ElementRef<SVGCircleElement | SVGPathElement>>;
 
@@ -53,14 +65,15 @@ export class ProgressCircleComponent implements OnInit, AfterViewInit {
     } else {
       startAnimation(...elements);
     }
+    this.initColor();
   }
 
   initColor() {
-    if (!this.color) {
+    if (!this._colorInit) {
       if (this.os === 'windows') {
-        this.color = '#0063AE';
+        this._color = '#0063AE';
       } else {
-        this.color = '#000000';
+        this._color = '#000000';
       }
     }
   }

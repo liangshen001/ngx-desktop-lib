@@ -1,27 +1,57 @@
 # NgxDesktopLib
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+ngx-desktop demo project(angular cli)
 
-## Development server
+# NgxDesktop
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Angular Desktop UI components (mac / windows)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The included components are as follows
 
-## Build
+* button (support mac or windows)
+* checkbox (support mac or windows)
+* text (support mac or windows)
+* label (support mac or windows)
+* text-input (support mac or windows)
+* radio (support mac or windows)
+* view (support mac or windows)
+* window (support mac or windows)
+* title-bar (support mac or windows)
+* toolbar (support mac)
+* toolbar-nav / toolbar-item (support mac)
+* segmented-control / segmented-control-item (support mac)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Demo
 
-## Running unit tests
+[https://liangshen001.github.io/ngx-desktop-lib/](https://liangshen001.github.io/ngx-desktop-lib/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Install
+````
+npm i ngx-desktop -s
+````
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### import module
 
-## Further help
+```
+import {NgxDesktopModule} from "ngx-desktop";
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    NgxDesktopModule.forRoot(),
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+```
+
+You can set the OS to use globally
+
+* NgxDesktopModule.forRoot('mac');
+* NgxDesktopModule.forRoot('windows');
+
+default value is 'auto';
+Will automatically switch according to the current system

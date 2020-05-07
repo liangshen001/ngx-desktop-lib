@@ -1,27 +1,18 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {OsTypes} from "../../../../projects/ngx-desktop/src/lib/types/types";
 import {NgxDesktopService} from "../../../../projects/ngx-desktop/src/lib/ngx-desktop.service";
+import {OsSwitchable} from "../os-switchable";
 
 @Component({
   selector: 'app-os-switch',
   templateUrl: './os-switch.component.html',
   styleUrls: ['./os-switch.component.css']
 })
-export class OsSwitchComponent implements OnInit {
+export class OsSwitchComponent extends OsSwitchable implements OnInit {
 
-  @Input()
-  os: OsTypes;
-
-  @Output()
-  osChange = new EventEmitter<OsTypes>();
-
-  @Input()
-  autoOs: boolean;
-
-  @Output()
-  autoOsChange = new EventEmitter<boolean>();
-
-  constructor(private ngxDesktopService: NgxDesktopService) { }
+  constructor(private ngxDesktopService: NgxDesktopService) {
+    super();
+  }
 
   ngOnInit(): void {
   }
@@ -33,6 +24,7 @@ export class OsSwitchComponent implements OnInit {
     } else {
       this.os = this.ngxDesktopService.getSystemOs();
     }
+    this.osChange.emit(this.os);
   }
 
 }

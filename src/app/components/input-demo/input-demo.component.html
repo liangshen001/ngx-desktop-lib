@@ -3,6 +3,12 @@
 </ngx-desktop-view>
 
 <ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-text-input [os]="'{{os}}'" [placeholder]="'{{placeholder}}'" [label]="'{{label}}'">&lt;/ngx-desktop-text-input>
+  </ngx-desktop-box>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os">
     <ngx-desktop-text-input [os]="os" label="Placeholder" [(ngModel)]="placeholder"></ngx-desktop-text-input>
 </ngx-desktop-view>
 

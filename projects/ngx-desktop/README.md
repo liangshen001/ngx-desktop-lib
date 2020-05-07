@@ -1,6 +1,6 @@
 # NgxDesktop
 
-Desktop UI components (mac / windows)
+Angular Desktop UI components (mac / windows)
 
 The included components are as follows
 
@@ -19,7 +19,7 @@ The included components are as follows
 
 ## Demo
 
-(https://liangshen001.github.io/ngx-desktop-lib/)[https://liangshen001.github.io/ngx-desktop-lib/]
+[https://liangshen001.github.io/ngx-desktop-lib/](https://liangshen001.github.io/ngx-desktop-lib/)
 
 ## Install
 ````

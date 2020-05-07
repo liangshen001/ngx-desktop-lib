@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:ngx-desktop": "ng build ngx-desktop",
-    "publish:ngx-desktop": "npm run build:ngx-desktop && npm publish --access public dist/longtu/platform-bi && npm run adduser:group"
+    "build:ngx-desktop": "ng build ngx-desktop --prod",
+    "publish:ngx-desktop": "npm run build:ngx-desktop && npm publish --access public dist/ngx-desktop"
   },
   "private": true,
   "dependencies": {

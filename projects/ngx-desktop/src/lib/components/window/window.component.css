@@ -1,3 +1,6 @@
+:host {
+  display: contents;
+}
 .window-container {
   user-select: none;
   cursor: default;

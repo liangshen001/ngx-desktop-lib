@@ -12,13 +12,5 @@ export class AppComponent {
   os: OsTypes = 'auto';
   title = 'ngx-desktop-lib';
 
-  constructor(private ngxDesktopService: NgxDesktopService) {}
-
-  autoOsChange($event: any) {
-    if ($event) {
-      this.os = 'auto';
-    } else {
-      this.os = this.ngxDesktopService.getSystemOs();
-    }
-  }
+  constructor() {}
 }

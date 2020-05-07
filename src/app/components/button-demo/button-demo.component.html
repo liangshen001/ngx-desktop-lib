@@ -1,5 +1,11 @@
+
 <ngx-desktop-view [os]="os">
   <ngx-desktop-button [os]="os" [color]="color">Button</ngx-desktop-button>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-box label="Code">
+    &lt;ngx-desktop-button [os]="'{{os}}'" [color]="'{{color}}'">Button&lt;/ngx-desktop-button>
+  </ngx-desktop-box>
 </ngx-desktop-view>
 <ngx-desktop-view [os]="os">
   <ngx-desktop-label [os]="os">Color:</ngx-desktop-label>

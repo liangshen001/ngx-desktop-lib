@@ -67,7 +67,7 @@ export class ButtonComponent implements OnInit {
   @Input()
   set color(color: MacColor | WindowsColor) {
     if (this._color !== color) {
-      if (this.os === 'windows' && this.color === 'default') {
+      if (this.os === 'windows' && color === 'default') {
         this._color = '#cccccc';
       } else {
         this._color = color;
