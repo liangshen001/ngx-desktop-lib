@@ -7,7 +7,6 @@
 
 input {
   outline: none;
-  user-select: none;
 }
 .text-input-wrap {
   position: relative;
