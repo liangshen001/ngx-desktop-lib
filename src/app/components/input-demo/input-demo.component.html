@@ -1,0 +1,15 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text-input [os]="os" [placeholder]="placeholder" [label]="label"></ngx-desktop-text-input>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os" marginTop="20px">
+    <ngx-desktop-text-input [os]="os" label="Placeholder" [(ngModel)]="placeholder"></ngx-desktop-text-input>
+</ngx-desktop-view>
+
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-text-input [os]="os" label="Label" [(ngModel)]="label"></ngx-desktop-text-input>
+</ngx-desktop-view>
+
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"
+></app-os-switch>

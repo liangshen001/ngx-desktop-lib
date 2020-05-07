@@ -73,8 +73,8 @@ input {
 .mac.checked input {
   box-shadow: none !important;
   transition: all 0.4s ease 0s;
-  background-color: rgb(59, 153, 252);
-  border-color: rgb(44, 145, 252);
+  background-color: #3B99FC;
+  border-color: #2C91FC;
 }
 
 .mac.checked .checkbox-style {
@@ -108,7 +108,7 @@ input {
   cursor: default;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
-  color: rgb(0, 0, 0);
+  color: #000000;
 }
 
 .mac .svg1 {

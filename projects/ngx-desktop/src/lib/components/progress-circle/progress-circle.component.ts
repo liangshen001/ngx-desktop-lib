@@ -23,6 +23,7 @@ export class ProgressCircleComponent implements OnInit, AfterViewInit {
   @Input()
   set os(os: OsTypes) {
     this._os = os;
+    setTimeout(() => this.init());
     this.initColor();
   }
   get os() {
@@ -44,6 +45,8 @@ export class ProgressCircleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+  }
+  init() {
     const elements = this.circles.map(({nativeElement}) => nativeElement);
     if (this.os === 'mac') {
       startAnimation2(...elements);

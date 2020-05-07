@@ -1,0 +1,5 @@
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-checkbox [os]="os" label="auto" [(ngModel)]="autoOs" (ngModelChange)="change($event)"></ngx-desktop-checkbox>
+  <ngx-desktop-radio [os]="os" name="os" value="mac" label="mac" [(ngModel)]="os" (ngModelChange)="osChange.emit($event)" [disabled]="autoOs" ></ngx-desktop-radio>
+  <ngx-desktop-radio [os]="os" name="os" value="windows" label="windows" [(ngModel)]="os" (ngModelChange)="osChange.emit($event)" [disabled]="autoOs" ></ngx-desktop-radio>
+</ngx-desktop-view>

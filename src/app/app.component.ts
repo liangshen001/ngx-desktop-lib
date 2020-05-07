@@ -11,7 +11,6 @@ export class AppComponent {
   autoOs: boolean = true;
   os: OsTypes = 'auto';
   title = 'ngx-desktop-lib';
-  selectedIndex = 0;
 
   constructor(private ngxDesktopService: NgxDesktopService) {}
 
@@ -21,14 +20,5 @@ export class AppComponent {
     } else {
       this.os = this.ngxDesktopService.getSystemOs();
     }
-  }
-
-  click() {
-    this.os = 'mac';
-  }
-
-  a() {
-    this.os = 'mac';
-    console.log(this.os);
   }
 }

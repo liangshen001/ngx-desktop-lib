@@ -17,6 +17,10 @@ The included components are as follows
 * toolbar-nav / toolbar-item (support mac)
 * segmented-control / segmented-control-item (support mac)
 
+## Demo
+
+(https://liangshen001.github.io/ngx-desktop-lib/)[https://liangshen001.github.io/ngx-desktop-lib/]
+
 ## Install
 ````
 npm i ngx-desktop -s

@@ -61,25 +61,27 @@
 <!--    <ngx-desktop-radio os="windows" name="123" value="123" label="123" [checked]="false"></ngx-desktop-radio>-->
 <!--  </ngx-desktop-view>-->
 <!--</ngx-desktop-window>-->
+
+
+
 <ngx-desktop-window [os]="os"
                     [horizontalAlignment]="'center'">
   <ngx-desktop-title-bar [os]="os"></ngx-desktop-title-bar>
   <ngx-desktop-segmented-control >
-    <ngx-desktop-segmented-control-item label="123">
-      <ngx-desktop-view [os]="os">
-        <ngx-desktop-checkbox [os]="os" label="auto" [(ngModel)]="autoOs" (ngModelChange)="autoOsChange($event)"></ngx-desktop-checkbox>
-        <ngx-desktop-checkbox [os]="os" label="test" [disabled]="true" [checked]="true"></ngx-desktop-checkbox>
-        <ngx-desktop-radio [os]="os" name="os" value="mac" label="mac" [(ngModel)]="os" [disabled]="autoOs" ></ngx-desktop-radio>
-        <ngx-desktop-radio [os]="os" name="os" value="windows" label="windows" [(ngModel)]="os" [disabled]="autoOs" ></ngx-desktop-radio>
-        <ngx-desktop-button [os]="os">button</ngx-desktop-button>
-        <ngx-desktop-text-input [os]="os"></ngx-desktop-text-input>
-      </ngx-desktop-view>
+    <ngx-desktop-segmented-control-item label="Text Input">
+      <app-input-demo  [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-input-demo>
     </ngx-desktop-segmented-control-item>
-    <ngx-desktop-segmented-control-item label="123">
-      <ngx-desktop-view [os]="os">
-        <ngx-desktop-text-input [os]="os"></ngx-desktop-text-input>
-        <ngx-desktop-button [os]="os">button</ngx-desktop-button>
-      </ngx-desktop-view>
+
+    <ngx-desktop-segmented-control-item label="Button">
+      <app-button-demo [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-button-demo>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Progress Circle">
+      <app-progress-circle [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-progress-circle>
+    </ngx-desktop-segmented-control-item>
+
+    <ngx-desktop-segmented-control-item label="Checkbox">
+      <app-checkbox-demo [(os)]="os" [(autoOs)]="autoOs" (autoOsChange)="autoOsChange($event)"></app-checkbox-demo>
     </ngx-desktop-segmented-control-item>
   </ngx-desktop-segmented-control>
 

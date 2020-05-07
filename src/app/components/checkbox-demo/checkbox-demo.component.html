@@ -1,0 +1,15 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-checkbox [os]="os" [label]="label" [(ngModel)]="checked" [disabled]="disabled"></ngx-desktop-checkbox>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os" marginTop="20px">
+  <ngx-desktop-text-input [os]="os" label="Label" [(ngModel)]="label"></ngx-desktop-text-input>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-radio [os]="os" [(ngModel)]="checked" [value]="true" label="True"></ngx-desktop-radio>
+  <ngx-desktop-radio [os]="os" [(ngModel)]="checked" [value]="false" label="False"></ngx-desktop-radio>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-checkbox [os]="os" label="Disabled" [(ngModel)]="disabled"></ngx-desktop-checkbox>
+</ngx-desktop-view>
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

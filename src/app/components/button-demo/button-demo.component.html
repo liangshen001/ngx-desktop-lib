@@ -1,0 +1,11 @@
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-button [os]="os" [color]="color">Button</ngx-desktop-button>
+</ngx-desktop-view>
+<ngx-desktop-view [os]="os">
+  <ngx-desktop-label [os]="os">Color:</ngx-desktop-label>
+  <ngx-desktop-radio label="Default" [value]="'default'" [(ngModel)]="color" [os]="os"></ngx-desktop-radio>
+  <ngx-desktop-radio label="Blue" [value]="'blue'" [(ngModel)]="color" [os]="os"></ngx-desktop-radio>
+  <ngx-desktop-radio label="Pink" [value]="'pink'" [(ngModel)]="color" [os]="os"></ngx-desktop-radio>
+</ngx-desktop-view>
+<app-os-switch [(os)]="os" (osChange)="osChange.emit($event)"
+               [(autoOs)]="autoOs" (autoOsChange)="autoOsChange.emit($event)"></app-os-switch>

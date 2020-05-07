@@ -42,6 +42,7 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   color: WindowsColor = '#0063AE';
 
   windowBlur: boolean;
+  mouseover: boolean;
 
   @Input()
   label: string;
@@ -62,7 +63,7 @@ export class RadioComponent extends ControlValueAccessorAbstractComponent implem
   get borderColor() {
     return this.os === 'mac' ?
       (this.windowBlur ? '#B8B8B8' : (this.checked ? '#2C91FC' : '#B8B8B8')) :
-      this.disabled ? '#999999' : (this.checked ? this.color : '#333333');
+      (this.disabled ? '#999999' : (this.checked ? this.color : (this.mouseover ? 'rgba(0, 0, 0, 0.6)' : '#333333')));
   }
 
   constructor(private ngxDesktopService: NgxDesktopService,

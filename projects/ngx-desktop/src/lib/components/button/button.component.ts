@@ -55,9 +55,7 @@ export class ButtonComponent implements OnInit {
   @Input()
   set os(os: OsTypes) {
     this._os = os;
-    if (os === 'windows' && !this.color) {
-      this.color = '#cccccc';
-    }
+    this.init();
   }
   get os() {
     return this.ngxDesktopService.getOs(this._os);
@@ -69,7 +67,11 @@ export class ButtonComponent implements OnInit {
   @Input()
   set color(color: MacColor | WindowsColor) {
     if (this._color !== color) {
-      this._color = color;
+      if (this.os === 'windows' && this.color === 'default') {
+        this._color = '#cccccc';
+      } else {
+        this._color = color;
+      }
       this.darkenColor = ColorUtils.darkenColor(color, .35);
       this.isDarkColor = ColorUtils.isDarkColor(this.darkenColor);
     }
@@ -117,7 +119,10 @@ export class ButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.os === 'windows' && !this.color) {
+    this.init();
+  }
+  init() {
+    if (this.os === 'windows' && (!this.color || this.color === 'default')) {
       this.color = '#cccccc';
     }
   }

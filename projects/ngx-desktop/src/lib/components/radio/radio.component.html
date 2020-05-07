@@ -2,6 +2,7 @@
        style="display: inline-block"
        [class]="os"
        (ngxDesktopWindowBlur)="windowBlur = $event"
+       (ngxDesktopMouseover)="mouseover = $event"
        [class.blur]="windowBlur"
        [class.checked]="checked"
        [class.disabled]="disabled">

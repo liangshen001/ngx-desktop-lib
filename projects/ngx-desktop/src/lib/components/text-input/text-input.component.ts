@@ -52,8 +52,9 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   get style() {
     if (this.os === 'windows') {
       return {
+        'border-color': 'rgba(0, 0, 0, 0.6)',
         ...this.mouseover ? {
-          'border-color': '#646464',
+          'border-color': 'rgba(0, 0, 0)',
           background: 'rgba(255, 255, 255, 0.5)'
         } : {},
         ...this.focus ? {
