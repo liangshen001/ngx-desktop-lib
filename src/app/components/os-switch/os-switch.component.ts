@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {OsTypes} from "../../../../projects/ngx-desktop/src/lib/types/types";
-import {NgxDesktopService} from "../../../../projects/ngx-desktop/src/lib/ngx-desktop.service";
+import {NgxDesktopService} from "ngx-desktop";
 import {OsSwitchable} from "../os-switchable";
 
 @Component({

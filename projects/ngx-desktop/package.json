@@ -1,6 +1,6 @@
 {
   "name": "ngx-desktop",
-  "version": "0.0.2",
+  "version": "9.0.1",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",

@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {OsTypes} from "../../../../projects/ngx-desktop/src/lib/types/types";
 import {OsSwitchable} from "../os-switchable";
-import {StyleValueTypes} from "../../../../projects/ngx-desktop/src/lib/pipes/style-value.pipe";
+import {StyleValueTypes} from "ngx-desktop";
 
 @Component({
   selector: 'app-window-demo',

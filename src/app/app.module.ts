@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NgxDesktopModule} from "../../projects/ngx-desktop/src/lib/ngx-desktop.module";
+import {NgxDesktopModule} from "ngx-desktop";
 import {FormsModule} from "@angular/forms";
 import { ButtonDemoComponent } from './components/button-demo/button-demo.component';
 import { OsSwitchComponent } from './components/os-switch/os-switch.component';

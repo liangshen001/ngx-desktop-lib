@@ -1,5 +1,7 @@
 # NgxDesktop
 
+angular 9.0.x
+
 Angular Desktop UI components (mac / windows)
 
 The included components are as follows
