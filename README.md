@@ -4,6 +4,7 @@ ngx-desktop demo project(angular cli)
 
 # NgxDesktop
 
+angular 9.0.x
 
 Angular Desktop UI components (mac / windows)
 
