@@ -1,8 +1,8 @@
 # NgxDesktop
 
-angular version [9.0.x - 9.1.5)
+support angular version [9.0.x - 9.1.5)
 
-Angular Desktop UI components (mac / windows)
+Angular UI Components for macOS High Sierra and Windows 10.
 
 The included components are as follows
 
@@ -18,6 +18,15 @@ The included components are as follows
 * toolbar (support mac)
 * toolbar-nav / toolbar-item (support mac)
 * segmented-control / segmented-control-item (support mac)
+* nav-pane / nav-pane (support windows) (developing)
+* pin (support mac) (developing)
+* list-view (support mac) (developing)
+
+```
+The component comes from react-desktop，I transferred it to project angular9
+```
+
+[https://www.npmjs.com/package/react-desktop](https://www.npmjs.com/package/react-desktop)
 
 ## Demo
 

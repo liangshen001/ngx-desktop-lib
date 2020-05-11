@@ -1,6 +1,6 @@
 {
   "name": "ngx-desktop",
-  "version": "9.0.2",
+  "version": "9.0.3",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
@@ -18,5 +18,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liangshen001/ngx-desktop-lib.git"
-  }
+  },
+  "keywords": [
+    "angular",
+    "angular9",
+    "mac",
+    "macOs",
+    "windows",
+    "desktop"
+  ]
 }
